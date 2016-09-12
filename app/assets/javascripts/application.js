@@ -14,3 +14,26 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+//= require bootstrap
+
+$(document).on('turbolinks:load', function() {
+  $('.sidebar-toggle').click(function() {
+    $('#body-admin').toggleClass('sidebar-collapse')
+  });
+
+  $('.treeview').click(function() {
+    if($(this).hasClass('active')){
+      $(this).children('.treeview-menu').slideUp()
+      $(this).removeClass('active')
+      $(this).find('.fa-angle-down').removeClass('fa-angle-down').addClass('fa-angle-left')
+    }
+    else {
+      $('.treeview-menu').slideUp()
+      $('.fa-angle-down').removeClass('fa-angle-down').addClass('fa-angle-left')
+      $('.treeview').removeClass('active')
+      $(this).children('.treeview-menu').slideDown()
+      $(this).addClass('active')
+      $(this).find('.fa-angle-left').removeClass('fa-angle-left').addClass('fa-angle-down')
+    }
+  });
+});

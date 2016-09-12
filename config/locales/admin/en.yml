@@ -1,0 +1,12 @@
+en:
+  layouts:
+    admin:
+      admin_title: "Admin|MOS"
+    admin_header:
+      admin_panel: "Admin Panel"
+      profile: "Profile"
+      sign_out: "Sign out"
+      users: "Users"
+      posts: "Posts"
+      confesstions: "Confesstions"
+      categories: "Categories"

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= t ".admin_title" %></title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbolinks-track": "reload" %>
+  </head>
+
+  <body id="body-admin" class="skin-blue sidebar-mini wysihtml5-supported" >
+    <div class="container">
+      <div class="banner center">
+        <%= image_tag "banner.png" %>
+      </div>
+      <div class="wrapper">
+        <%= render "layouts/admin_header" %>
+        <div class="content-wrapper">
+          <section class="content-header">
+            <ol class="breadcrumb">
+            </ol>
+          </section>
+          <section class="content">
+            <%= yield %>
+          </section>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
