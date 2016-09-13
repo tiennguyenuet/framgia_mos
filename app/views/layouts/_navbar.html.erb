@@ -1,0 +1,52 @@
+<div class="wrapper_container">
+  <div id="head" class="clearfix">
+    <div id="logo">
+      <a href="#">
+        <%= image_tag("home-icon.png", size: "80x80") %>
+      </a>
+    </div>
+    <div id="main_menu_bar">
+      <ul id="main_menu">
+        <li>
+          <%= link_to t("views.master_page.navigation.blog.online"), "#" %>
+          <ul class="sub_menu">
+            <li><%= link_to t("views.master_page.navigation.post.online.tamsu"),
+              "#" %></li>
+            <li><%= link_to t("views.master_page.navigation.post.online.tamhon"),
+              "#" %></li>
+            <li><%= link_to t("views.master_page.navigation.post.online.giaitri"),
+              "#" %></li>
+            <li><%= link_to t("views.master_page.navigation.post.online.tintuc"),
+              "#" %></li>
+          </ul>
+        </li>
+        <li>
+          <%= link_to t("views.master_page.navigation.blog.cuatoi"), "#" %>
+          <ul class="sub_menu">
+            <li><%= link_to t("views.master_page.navigation.post.cuatoi.yeu"),
+              "#" %></li>
+            <li><%= link_to t("views.master_page.navigation.post.cuatoi.cafe"),
+              "#" %></li>
+            <li><%= link_to t("views.master_page.navigation.post.cuatoi.tho"),
+              "#" %></li>
+            <li><%= link_to t("views.master_page.navigation.post.cuatoi.truyen"),
+              "#" %></li>
+          </ul>
+        </li>
+        <li>
+          <%= link_to t("views.master_page.navigation.blog.cuocsong"), "#" %>
+          <ul class="sub_menu">
+            <li><%= link_to t("views.master_page.navigation.post.cuocsong.songdep"),
+              "#" %></li>
+            <li><%= link_to t("views.master_page.navigation.post.cuocsong.chiemtinh"),
+              "#" %></li>
+            <%= link_to t("views.master_page.navigation.post.cuocsong.thugian"),
+              "#" %>
+          </ul>
+        </li>
+        <li><%= link_to t("views.master_page.navigation.blog.sukien"), "#" %></li>
+        <li><%= link_to t("views.master_page.navigation.blog.guibai"), "#" %></li>
+      </ul>
+    </div>
+  </div>
+</div>

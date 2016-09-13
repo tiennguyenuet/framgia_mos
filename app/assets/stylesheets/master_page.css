@@ -1,0 +1,161 @@
+* { margin: 0px; padding: 0px;}
+a { text-decoration: none; color: #888;}
+ul li{
+  list-style: none;
+}
+.clearfix:after{
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+
+.wrapper{
+  background: #B7EDF5;
+}
+
+.clearfix{
+  clear: both;
+  display: block;
+}
+
+.header_content{
+  height: 120px;
+  background: #FFFFFF;
+}
+
+#header_logo{
+  float: left;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+#header_slogan{
+  float: left;
+  margin-top: 10px;
+}
+
+body{
+  font-family: arial;
+  font-size: 13px;
+  background-image: url("bg.gif");
+}
+
+.wrapper_container{
+  width: 1000px;
+  margin: 0px auto;
+}
+
+#head{
+  background-color: #58a9d8;
+  height: 60px;
+}
+
+#logo, #main_menu{
+  float: left;
+}
+
+#logo img{
+  height: 50px;
+  width: 50px;
+  margin-top: 4px;
+  margin-right: 10px;
+}
+
+#main_menu a{
+  color: #fcfcfc;
+}
+
+#main_menu li:hover{
+  background: #8D7FF2;
+}
+
+#main_menu li{
+  height: 50px;
+}
+
+#main_menu>li{
+  height: 60px;
+}
+
+#main_menu > li{
+  float: left;
+  border-right: 1px solid #E8E8E8;
+}
+
+#main_menu li:last-child{
+  border-right: 0px;
+}
+
+#main_menu li{
+  position: relative;
+}
+
+#main_menu li:hover>.sub_menu{
+  display: block;
+}
+
+#main_menu li .sub_menu{
+  position: absolute;
+  width: 200px;
+  background: #58a9d8;
+  display: none;
+}
+
+#main_menu>li>.sub_menu{
+  top: 60px;
+  position: absolute;
+  left: 0px;
+}
+
+#main_menu>li a{
+  text-transform: lowercase;
+  display: block;
+  padding: 15px;
+}
+
+#main_menu>li>a{
+  padding: 20px;
+  text-transform: uppercase;
+  color: #fcfcfc;
+  font-size: 15;
+  font-style: oblique;
+}
+
+#footer{
+  margin-top: 20px;
+  background: #FFFFFF;
+  padding-left: 10px;
+  height: 100px;
+}
+
+.info{
+  padding-top: 20px;
+}
+
+#main_content{
+  min-height: 500px;
+}
+
+#left_content{
+  margin-top: 20px;
+  min-height: 500px;
+  width: 706px;
+  float: left;
+  border-right: 1px solid #E8E8E8;
+  border-left: 1px solid #E8E8E8;
+  margin-right: 40px;
+  background-color: #FFFFFF;
+}
+
+#right_content{
+  margin-top: 20px;
+  min-height: 500px;
+  width: 250px;
+  float: left;
+  border-left: 1px solid #E8E8E8;
+  border-right: 1px solid #E8E8E8;
+  background-color: #FFFFFF;
+}
