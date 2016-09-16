@@ -1,0 +1,36 @@
+.menu-action li{
+  float:left;
+  display: inline;
+  list-style: none;
+  margin-left: 10px;
+}
+
+.btn-action{
+  border: none;
+  background: transparent;
+  color: #888;
+}
+
+.column-role-status-width {
+  width: 10%;
+}
+
+.column-action-width {
+  width: 15%;
+}
+
+.column-name-user-width {
+  width: 20%;
+}
+
+.column-email-width {
+  width: 25%;
+}
+
+.status-active {
+  background-color: #82FA58;
+}
+
+.status-blocked {
+  background-color: #F78181;
+}

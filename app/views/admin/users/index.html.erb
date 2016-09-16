@@ -1,0 +1,36 @@
+<h2><%= t ".index_user" %></h2>
+<br/>
+<div>
+  <%= search_form_for [:admin, @search], class: "form-inline" do |f| %>
+    <%= f.text_field :name_or_email_cont,
+      placeholder: t(".name_or_email"),
+      class: "form-control width_text_field_search" %>
+    <%= f.submit t(".search"),
+      class: "btn btn-info margin_left_btn_submit" %>
+  <% end %>
+</div>
+<br/>
+<br/>
+<div class="table-responsive">
+  <table class="table table-hovered">
+    <thead>
+      <th class="column-name-user-width">
+        <%= sort_link @search, :name, t(".name") %>
+      </th>
+      <th class="column-name-user-width">
+        <%= sort_link @search, :user_name, t(".user_name") %>
+      </th>
+      <th class="column-email-width">
+        <%= sort_link @search, :email, t(".email") %>
+      </th>
+      <th class="column-role-status-width"><%= t ".role" %></th>
+      <th class="column-role-status-width"><%= t ".status" %></th>
+      <th class="column-action-width"><%= t ".action" %></th>
+    </thead>
+    <tbody>
+      <%= render(partial: "user", collection: @users, as: :user) || t(".no_course.display") %>
+    </tbody>
+  </table>
+</div>
+<%= paginate @users, theme: "twitter-bootstrap-3",
+  pagination_class: "pagination-sm" %>

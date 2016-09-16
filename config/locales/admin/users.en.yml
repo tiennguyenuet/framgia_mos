@@ -1,0 +1,24 @@
+en:
+  admin:
+    users:
+      index:
+        name: "Name"
+        user_name: "Username"
+        email: "Email"
+        role: "Role"
+        status: "Status"
+        action: "Action"
+        name_or_email: "Enter name or email..."
+        search: "Search"
+        index_user: "List all users"
+        no_user_display: "There are not users displayed!"
+      user:
+        tooltip_show: "Show"
+        tooltip_lock: "Lock"
+        tooltip_unlock: "Unlock"
+        tooltip_delete: "Delete"
+        active: "Actived"
+        blocked: "Blocked"
+      update:
+        success: "User was been updated"
+        error: "User wasn't been updated!"

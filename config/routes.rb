@@ -6,5 +6,7 @@ Rails.application.routes.draw do
     root "posts#index"
     resources :posts, only: :index
     resources :categories
+    resources :categories, only: [:index, :new, :create]
+    resources :users, only: [:index, :update]
   end
 end

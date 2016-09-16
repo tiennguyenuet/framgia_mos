@@ -1,0 +1,50 @@
+<tr>
+  <td><%= user.name %></td>
+  <td><%= user.user_name %></td>
+  <td><%= user.email %></td>
+  <td><%= user.role %></td>
+  <td>
+    <% if user.active? %>
+      <span class="status-active"><%= user.status %>
+    <% else %>
+    <span class="status-blocked"><%= user.status %>
+    <% end %>
+  </td>
+  <td class="column-min-width">
+    <ul class="menu-action">
+      <li>
+        <%= link_to "#", title: t(".tooltip_show") do %>
+          <span class="glyphicon glyphicon-info-sign"></span>
+        <% end %>
+      </li>
+      <% unless user.admin? %>
+        <% if user.active? %>
+          <li>
+            <%= form_for [:admin, user] do |f| %>
+              <%= f.hidden_field :status, value: :blocked %>
+              <%= button_tag(type: "submit", class: "btn-action",
+                title: t(".tooltip_lock")) do %>
+                <i class="fa fa-lock"></i>
+              <% end %>
+            <% end %>
+          </li>
+        <% elsif user.blocked? %>
+          <li>
+            <%= form_for [:admin, user] do |f| %>
+              <%= f.hidden_field :status, value: :active %>
+              <%= button_tag(type: "submit", class: "btn-action",
+                title: t(".tooltip_unlock")) do %>
+                <i class="fa fa-unlock-alt"></i>
+              <% end %>
+            <% end %>
+          </li>
+        <% end %>
+        <li>
+          <%= link_to "#", title: t(".tooltip_delete") do %>
+            <span class="glyphicon glyphicon-remove"></span>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </td>
+</tr>

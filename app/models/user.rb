@@ -1,6 +1,4 @@
 class User < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :active_relationships, class_name: Relationship.name,
@@ -15,4 +13,6 @@ class User < ActiveRecord::Base
   has_many :likes, dependent: :destroy
 
   validates :name, presence: true, length: {maximum: 50}
+  enum role: [:admin, :user]
+  enum status: [:active, :blocked]
 end
