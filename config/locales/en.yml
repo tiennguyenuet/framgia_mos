@@ -22,29 +22,6 @@
 en:
   hello: "Hello world"
   views:
-    master_page:
-      navigation:
-        blog:
-          online: "RADIO ONLINE"
-          cuatoi: "BLOG CUA TOI"
-          cuocsong: "BLOG CUOC SONG"
-          sukien: "SU KIEN"
-          guibai: "GUI BAI"
-        post:
-          online:
-            tamsu: "RADIO TAM SU"
-            tamhon: "RADIO TAM HON"
-            giaitri: "RADIO GIAI TRI"
-            tintuc: "RADIO TIN TUC"
-          cuatoi:
-            yeu: "YEU 24/7"
-            cafe: "CAFE BLOG"
-            tho: "THO BLOG"
-            truyen: "TRUYEN ONLINE"
-          cuocsong:
-            songdep: "SONG DEP"
-            chiemtinh: "CHIEM TINH"
-            thugian: "THU GIAN"
     shared:
     error_messages:
       message: "The form contains"

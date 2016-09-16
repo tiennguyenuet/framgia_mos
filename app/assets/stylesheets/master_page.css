@@ -64,6 +64,10 @@ body{
   margin-right: 10px;
 }
 
+#main_menu{
+  float: left;
+}
+
 #main_menu a{
   color: #fcfcfc;
 }
@@ -158,4 +162,72 @@ body{
   border-left: 1px solid #E8E8E8;
   border-right: 1px solid #E8E8E8;
   background-color: #FFFFFF;
+}
+
+.navbar-pull-right{
+  margin-right: 0px;
+}
+
+#info_user{
+  float: right;
+}
+
+#info_user a{
+  color: #fcfcfc;
+}
+
+#info_user li:hover{
+  background: #8D7FF2;
+}
+
+#info_user li{
+  height: 50px;
+}
+
+#info_user>li{
+  height: 60px;
+}
+
+#info_user > li{
+  float: left;
+  border-right: 1px solid #E8E8E8;
+}
+
+#info_user li:last-child{
+  border-right: 0px;
+}
+
+#info_user li{
+  position: relative;
+}
+
+#info_user li:hover>.sub_menu{
+  display: block;
+}
+
+#info_user li .sub_menu{
+  position: absolute;
+  width: 125px;
+  background: #58a9d8;
+  display: none;
+}
+
+#info_user>li>.sub_menu{
+  top: 60px;
+  position: absolute;
+  left: 0px;
+}
+
+#info_user>li a{
+  text-transform: lowercase;
+  display: block;
+  padding: 15px;
+}
+
+#info_user>li>a{
+  padding: 20px;
+  text-transform: uppercase;
+  color: #fcfcfc;
+  font-size: 15;
+  font-style: oblique;
 }

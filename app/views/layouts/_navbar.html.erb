@@ -8,44 +8,50 @@
     <div id="main_menu_bar">
       <ul id="main_menu">
         <li>
-          <%= link_to t("views.master_page.navigation.blog.online"), "#" %>
+          <%= link_to t(".online"), "#" %>
           <ul class="sub_menu">
-            <li><%= link_to t("views.master_page.navigation.post.online.tamsu"),
-              "#" %></li>
-            <li><%= link_to t("views.master_page.navigation.post.online.tamhon"),
-              "#" %></li>
-            <li><%= link_to t("views.master_page.navigation.post.online.giaitri"),
-              "#" %></li>
-            <li><%= link_to t("views.master_page.navigation.post.online.tintuc"),
-              "#" %></li>
+            <li><%= link_to t(".tamsu"), "#" %></li>
+            <li><%= link_to t(".tamhon"), "#" %></li>
+            <li><%= link_to t(".giaitri"), "#" %></li>
+            <li><%= link_to t(".tintuc"), "#" %></li>
           </ul>
         </li>
         <li>
-          <%= link_to t("views.master_page.navigation.blog.cuatoi"), "#" %>
+          <%= link_to t(".cuatoi"), "#" %>
           <ul class="sub_menu">
-            <li><%= link_to t("views.master_page.navigation.post.cuatoi.yeu"),
-              "#" %></li>
-            <li><%= link_to t("views.master_page.navigation.post.cuatoi.cafe"),
-              "#" %></li>
-            <li><%= link_to t("views.master_page.navigation.post.cuatoi.tho"),
-              "#" %></li>
-            <li><%= link_to t("views.master_page.navigation.post.cuatoi.truyen"),
-              "#" %></li>
+            <li><%= link_to t(".yeu"), "#" %></li>
+            <li><%= link_to t(".cafe"), "#" %></li>
+            <li><%= link_to t(".tho"), "#" %></li>
+            <li><%= link_to t(".truyen"), "#" %></li>
           </ul>
         </li>
         <li>
-          <%= link_to t("views.master_page.navigation.blog.cuocsong"), "#" %>
+          <%= link_to t(".cuocsong"), "#" %>
           <ul class="sub_menu">
-            <li><%= link_to t("views.master_page.navigation.post.cuocsong.songdep"),
-              "#" %></li>
-            <li><%= link_to t("views.master_page.navigation.post.cuocsong.chiemtinh"),
-              "#" %></li>
-            <%= link_to t("views.master_page.navigation.post.cuocsong.thugian"),
-              "#" %>
+            <li><%= link_to t(".songdep"), "#" %></li>
+            <li><%= link_to t(".chiemtinh"), "#" %></li>
+            <%= link_to t(".thugian"), "#" %>
           </ul>
         </li>
-        <li><%= link_to t("views.master_page.navigation.blog.sukien"), "#" %></li>
-        <li><%= link_to t("views.master_page.navigation.blog.guibai"), "#" %></li>
+        <li><%= link_to t(".sukien"), "#" %></li>
+        <li><%= link_to t(".guibai"), "#" %></li>
+      </ul>
+      <ul id="info_user">
+        <% if user_signed_in? %>
+          <li>
+            <%= link_to current_user.name, "#" %>
+            <ul class="sub_menu">
+              <li><%= link_to t(".edit"), edit_user_registration_path %></li>
+              <li><%= link_to t(".logout"), destroy_user_session_path,
+                method: :delete %>
+              </li>
+            </ul>
+          </li>
+        <% else %>
+          <li>
+            <%= link_to t(".login"), new_user_session_path %>
+          </li>
+        <% end %>
       </ul>
     </div>
   </div>
