@@ -1,0 +1,9 @@
+en:
+  admin:
+    categories:
+      index:
+        new: "New"
+        index: "Index"
+        all_categories: "All Categories"
+      create:
+        success: "Created successfully"

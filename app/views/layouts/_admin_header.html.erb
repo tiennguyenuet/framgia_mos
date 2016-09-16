@@ -62,6 +62,11 @@
               <i class="fa fa-angle-left pull-right"></i>
             </a>
             <ul class="treeview-menu">
+              <% @categories_parent_master.each do |category| %>
+                <li>
+                  <a href=""><i class="fa fa-cube"></i><span><%= category.name %></span></a>
+                </li>
+              <% end %>
             </ul>
           </li>
       </ul>
