@@ -1,0 +1,32 @@
+<div class="show-post">
+  <div class="post-body">
+    <span class="title">
+      <%= @post.title %>
+    </span>
+    <div class="info">
+      <div class="author">
+        <i class="fa fa-user"></i>
+        &nbsp<%= t ".author" %>: <%= @post.user.name if @post.user %>
+      </div>
+      <div class="time">
+        <i class="fa fa-clock-o"></i>
+        <span>
+          &nbsp<%= @post.updated_at.strftime Settings.time_format.normal %>
+        </span>
+      </div>
+    </div>
+    <div class="description">
+      <strong><%= @post.description %></strong>
+    </div>
+
+    <div class="content">
+      <%= @post.content.html_safe %>
+    </div>
+
+    <div class="comment">
+      <div id="fb-root"></div>
+      <div class="fb-comments" data-href="http://localhost:3000/posts/1"
+        data-width="100%" data-numposts="5"></div>
+    </div>
+  </div>
+</div>
