@@ -6,6 +6,10 @@ class Admin::CategoriesController < Admin::BaseController
     load_categories
   end
 
+  def show
+    @categories_for_select = Category.pluck(:name, :id)
+  end
+
   def create
     if @category.save
       flash[:success] = t ".success"
@@ -24,6 +28,16 @@ class Admin::CategoriesController < Admin::BaseController
       @category.destroy ? flash[:success] = t(".deleted") : flash[:danger] = t(".not_deleted")
     end
     redirect_to :back
+  end
+
+  def update
+    if @category.update_attributes category_params
+      flash[:success] = t ".success"
+      redirect_to [:admin, @category]
+    else
+      @categories_for_select = Category.pluck(:name, :id)
+      render :show
+    end
   end
 
   private
