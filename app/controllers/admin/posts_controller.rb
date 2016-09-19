@@ -1,5 +1,5 @@
-class Admin::PostsController < ApplicationController
-  layout "admin"
+class Admin::PostsController < Admin::BaseController
+
   def index
   end
 end

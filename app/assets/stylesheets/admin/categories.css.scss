@@ -4,3 +4,29 @@
     margin: 10px 0;
   }
 }
+
+#category-index {
+  table {
+    thead {
+      .index {
+        width: 12%;
+      }
+      .name {
+        width: 25%;
+      }
+      .number-posts {
+        width: 13%;
+      }
+      .parent {
+        width: 25%;
+      }
+      .action {
+        width: 30%;
+      }
+    }
+  }
+
+  .right {
+    text-align: right;
+  }
+}

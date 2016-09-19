@@ -5,5 +5,17 @@ en:
         new: "New"
         index: "Index"
         all_categories: "All Categories"
+        name: "Name"
+        number_posts: "Number Posts"
+        parent: "Parent"
+        action: "Action"
+        delete_confirm: "Are you sure?"
+        search_name: "Name..."
+        search_parent: "Parent"
+        submit_search: "Search"
       create:
         success: "Created successfully"
+      destroy:
+        deleted: "Deleted successfully"
+        not_deleted: "Deleted fail"
+        check_destroy: "Exist childrens or posts in category, can't delete"
