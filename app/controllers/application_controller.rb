@@ -3,7 +3,6 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   before_filter :configure_permitted_parameters, if: :devise_controller?
-  before_action :load_categories_parent_master
 
   private
   def configure_permitted_parameters
@@ -12,9 +11,5 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update) {|u| u.permit :name,
       :user_name, :sex, :birthday, :email, :password, :current_password,
       :phone_number, :address, :status}
-  end
-
-  def load_categories_parent_master
-    @categories_parent_master = Category.parent_master
   end
 end
