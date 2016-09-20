@@ -3,3 +3,5 @@ admin:
     per_page: 5
   users:
     per_page: 5
+  posts:
+    per_page: 5

@@ -60,9 +60,9 @@ ActiveRecord::Schema.define(version: 20160916024240) do
     t.integer  "user_id"
     t.integer  "category_id"
     t.integer  "type"
-    t.integer  "status"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.integer  "status",                    default: 0
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
   end
 
   create_table "relationships", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

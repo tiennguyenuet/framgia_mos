@@ -9,7 +9,7 @@ class CreatePosts < ActiveRecord::Migration
       t.integer :user_id
       t.integer :category_id
       t.integer :type
-      t.integer :status
+      t.integer :status, default: 0
 
       t.timestamps null: false
     end
