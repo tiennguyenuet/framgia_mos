@@ -1,0 +1,39 @@
+<%= form_for [:admin, @post] do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+  <div class="fields">
+    <%= f.label :type %>
+    <%= f.select :type, Post.types.keys.to_a, {},
+      {class: "form-control"} %>
+  </div>
+
+  <div class="field">
+    <%= f.label :category_id %>
+    <%= f.select :category_id,
+      @categorys.collect {|category| [category.name, category.id ]},
+      {}, {class: "form-control"} %>
+  </div>
+
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_area :title, class: "form-control" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_area :descriptioon, class: "form-control" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :image %>
+    <%= f.file_field :image, class: "form-control" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :audio %>
+    <%= f.file_field :audio, class: "form-control" %>
+  </div>
+
+  <div class="clearfix"></div>
+  <%= f.submit t("views.admin.question.save"),
+    class: "btn btn-primary" %>
+<% end %>

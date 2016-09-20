@@ -8,8 +8,8 @@ class CreatePosts < ActiveRecord::Migration
       t.string :audio
       t.integer :user_id
       t.integer :category_id
-      t.integer :type
       t.integer :status, default: 0
+      t.integer :post_type
 
       t.timestamps null: false
     end
