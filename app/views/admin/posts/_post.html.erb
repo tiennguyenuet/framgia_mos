@@ -1,0 +1,21 @@
+<tr>
+  <td><%= post.title %></td>
+  <td><%= post.created_at.strftime("%m/%d/%Y at %I:%M%p") %></td>
+  <td>
+    <% if post.waiting? %>
+      <span class="status-waiting"><%= post.status %>
+    <% elsif post.accepted? %>
+      <span class="status-accepted"><%= post.status %>
+    <% else %>
+      <span class="status-reject"><%= post.status %>
+    <% end %>
+  </td>
+  <td>
+    <%= link_to "#", title: t(".tooltip_show") do %>
+      <span class="glyphicon glyphicon-info-sign"></span>
+    <% end %>
+    <%= link_to "#", title: t(".tooltip_delete") do %>
+      <span class="glyphicon glyphicon-remove"></span>
+    <% end %>
+  </td>
+</tr>

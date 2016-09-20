@@ -1,0 +1,18 @@
+en:
+  admin:
+    posts:
+      index:
+        index_posts: "List all posts"
+        search: "Search"
+        search_title: "Enter title..."
+        title: "Title"
+        created_at: "Send date"
+        status: "Status"
+        action: "Action"
+        no_post_display: "There are no post display!"
+        search_categories: "Choose category..."
+        search_users: "Choose user..."
+        category: "Category"
+      post:
+        tooltip_show: "Show"
+        tooltip_delete: "Delete"
