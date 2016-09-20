@@ -1,3 +1,5 @@
 admin:
   categories:
     per_page: 5
+  users:
+    per_page: 5

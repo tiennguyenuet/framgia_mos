@@ -27,6 +27,7 @@ gem "mini_magick"
 gem "fog", "1.36.0"
 gem "devise"
 gem "simple_form"
+gem "bootstrap-kaminari-views"
 
 group :development, :test do
   gem "byebug", platform: :mri

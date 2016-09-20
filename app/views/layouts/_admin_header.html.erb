@@ -37,7 +37,11 @@
     <section class="sidebar">
       <ul class="sidebar-menu">
           <li>
-            <a href=""><i class="fa fa-user"></i><span><%= t ".users" %></span></a>
+            <%= link_to admin_users_path do %>
+              <i class="fa fa-user"></i>
+              <span><%= t ".users" %>
+              </span>
+            <% end %>
           </li>
           <li id="evaluations-header" class="treeview">
             <a href="javascript:void(0)">
