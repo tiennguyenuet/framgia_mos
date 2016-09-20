@@ -10,6 +10,7 @@ class Post < ActiveRecord::Base
   mount_uploader :audio, PostMusicUploader
 
   validates :title, presence: true
+  validates :category_id, presence: true
   validates :description, presence: true
   validates :content, presence: true
   validates :image, presence: true
@@ -18,7 +19,7 @@ class Post < ActiveRecord::Base
 
   private
   def validate_audio
-    if self.post_type == Setting.admin.posts.audio_post
+    if self.post_type == Settings.admin.posts.audio_post
       if self.audio.nil?
         self.errors.add :create,
           I18n.t(".error_audio")

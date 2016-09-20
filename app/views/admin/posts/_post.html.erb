@@ -14,6 +14,9 @@
     <%= link_to "#", title: t(".tooltip_show") do %>
       <span class="glyphicon glyphicon-info-sign"></span>
     <% end %>
+    <%= link_to edit_admin_post_path(post), title: t(".tooltip_show") do %>
+      <span class="glyphicon glyphicon-pencil"></span>
+    <% end %>
     <%= link_to "#", title: t(".tooltip_delete") do %>
       <span class="glyphicon glyphicon-remove"></span>
     <% end %>

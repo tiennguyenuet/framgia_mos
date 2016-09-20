@@ -13,9 +13,13 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
 //= require bootstrap
 //= require ckeditor/init
+//= require jquery-ui
+//= require bootstrap-sprockets
+//= require bootstrap.min
+//= require bootstrap-select
+//= require_tree .
 
 $(document).on('turbolinks:load', function() {
   $('.sidebar-toggle').click(function() {
