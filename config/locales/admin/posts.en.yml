@@ -13,6 +13,11 @@ en:
         search_categories: "Choose category..."
         search_users: "Choose user..."
         category: "Category"
+        save: "Save"
+      create:
+        error_audio: "Please choose a music for this post!"
       post:
         tooltip_show: "Show"
         tooltip_delete: "Delete"
+
+

@@ -15,6 +15,7 @@
 //= require turbolinks
 //= require_tree .
 //= require bootstrap
+//= require ckeditor/init
 
 $(document).on('turbolinks:load', function() {
   $('.sidebar-toggle').click(function() {
