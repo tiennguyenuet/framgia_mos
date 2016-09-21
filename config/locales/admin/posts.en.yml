@@ -16,11 +16,21 @@ en:
         save: "Save"
       create:
         error_audio: "Please choose a music for this post!"
+        success: "Created post success!"
+        fail: "Created post fail!"
+      destroy:
+        success: "Deleted post success!"
+        fail: "Deleted post fail!"
+      edit:
+        success: "Edited post success!"
+        fail: "Edited post fail!"
       post:
         tooltip_show: "Show"
         tooltip_delete: "Delete"
         tooltip_edit: "Edit"
+        delete_confirm: "Delete Confirm"
       form:
         save: "Update"
+
 
 
