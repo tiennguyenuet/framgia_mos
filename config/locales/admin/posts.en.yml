@@ -19,5 +19,8 @@ en:
       post:
         tooltip_show: "Show"
         tooltip_delete: "Delete"
+        tooltip_edit: "Edit"
+      form:
+        save: "Update"
 
 

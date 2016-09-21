@@ -28,6 +28,8 @@ gem "fog", "1.36.0"
 gem "devise"
 gem "simple_form"
 gem "bootstrap-kaminari-views"
+gem "jquery-ui-rails"
+gem "bootstrap-select-rails"
 
 group :development, :test do
   gem "byebug", platform: :mri

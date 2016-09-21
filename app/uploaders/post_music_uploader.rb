@@ -49,7 +49,6 @@ class PostMusicUploader < CarrierWave::Uploader::Base
   # end
 
   def extension_white_list
-      %w(mp3)
-   end
-
+    %w(mp3)
+  end
 end

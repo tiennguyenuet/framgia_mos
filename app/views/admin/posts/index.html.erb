@@ -48,44 +48,42 @@
     </div>
     <div id="post-new"
       class="tab-pane fade <%= 'in active' if params[:action] == 'create' %>">
-      <%= form_for [:admin, @post], html: {multipart: true} do |f| %>
+      <%= simple_form_for [:admin, @post], html: {multipart: true} do |f| %>
         <%= render "shared/error_messages", object: f.object %>
         <div class="fields">
           <%= f.label :post_type %>
-          <%= f.select :post_type, Post.post_types.keys.to_a, {},
-            {class: "form-control"} %>
+          <%= f.select :post_type,
+            Post.post_types.keys.to_a,
+            {include_blank: false},
+            class: "form-control selectpicker", data: {"live-search": true} %>
         </div>
 
         <div class="field">
           <%= f.label :category_id %>
           <%= f.select :category_id,
-            @categories.collect {|category| [category.name, category.id ]},
-            {}, {class: "form-control"} %>
+            @categories.collect {|category| [category.name, category.id]},
+            {include_blank: false},
+            class: "form-control selectpicker", data: {"live-search": true} %>
         </div>
 
         <div class="field">
-          <%= f.label :title %>
-          <%= f.text_field :title, class: "form-control" %>
+          <%= f.input :title, input_html: {class: "form-control"} %>
         </div>
 
         <div class="field">
-          <%= f.label :description %>
-          <%= f.text_area :description, class: "form-control" %>
+          <%= f.input :description, as: :text, input_html: {class: "form-control"} %>
         </div>
 
         <div class="field">
-          <%= f.label :content %>
-          <%= f.cktext_area :content, :class => 'ckeditor' %>
+          <%= f.input :content, as: :ckeditor, input_html: {class: "ckeditor"} %>
         </div>
 
         <div class="field">
-          <%= f.label :image %>
-          <%= f.file_field :image, class: "form-control" %>
+          <%= f.input :image, as: :file, input_html: {class: "form-control"} %>
         </div>
 
         <div class="field">
-          <%= f.label :audio %>
-          <%= f.file_field :audio, class: "form-control" %>
+          <%= f.input :audio, as: :file, input_html: {class: "form-control"} %>
         </div>
 
         <div class="clearfix"></div>
