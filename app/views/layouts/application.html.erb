@@ -14,6 +14,11 @@
     <div class="clearfix"></div>
     <div id="main_content">
         <div class="wrapper_container">
+          <div class="message">
+            <% flash.each do |message_type, message| %>
+              <%= content_tag :div, message, class: "alert alert-#{message_type}" %>
+            <% end %>
+          </div>
           <%= render "layouts/leftcontent" %>
           <%= render "layouts/rightcontent" %>
           <div class="clearfix"></div>

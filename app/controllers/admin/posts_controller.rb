@@ -38,6 +38,16 @@ class Admin::PostsController < Admin::BaseController
     end
   end
 
+
+  def destroy
+    if @post.destroy
+      flash[:success] = t ".success"
+    else
+      flash[:danger] = t ".fail"
+    end
+    redirect_to admin_posts_path
+  end
+
   private
   def post_params
     params.require(:post).permit(:id, :title, :description, :category_id,
