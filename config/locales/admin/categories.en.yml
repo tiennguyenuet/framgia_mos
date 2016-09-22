@@ -13,9 +13,15 @@ en:
         search_name: "Name..."
         search_parent: "Parent"
         submit_search: "Search"
+        category_parent: "Parent"
+        parent: "Parent"
       create:
         success: "Created successfully"
       destroy:
         deleted: "Deleted successfully"
         not_deleted: "Deleted fail"
         check_destroy: "Exist childrens or posts in category, can't delete"
+      update:
+        success: "Updated successfully"
+      show:
+        category_parent: "Parent"
