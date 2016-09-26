@@ -1,13 +1,10 @@
 class Admin::CategoriesController < Admin::BaseController
   load_and_authorize_resource
+  before_action :load_parent_categories, only: [:index, :show]
 
   def index
     @new_category = Category.new
     load_categories
-  end
-
-  def show
-    @categories_for_select = Category.pluck(:name, :id)
   end
 
   def create
@@ -17,7 +14,21 @@ class Admin::CategoriesController < Admin::BaseController
     else
       @new_category = @category
       load_categories
+      load_parent_categories
       render :index
+    end
+  end
+
+  def show
+  end
+
+  def update
+    if @category.update_attributes category_params
+      flash[:success] = t ".success"
+      redirect_to [:admin, @category]
+    else
+      load_parent_categories
+      render :show
     end
   end
 
@@ -30,22 +41,20 @@ class Admin::CategoriesController < Admin::BaseController
     redirect_to :back
   end
 
-  def update
-    if @category.update_attributes category_params
-      flash[:success] = t ".success"
-      redirect_to [:admin, @category]
-    else
-      @categories_for_select = Category.pluck(:name, :id)
-      render :show
-    end
-  end
-
   private
   def load_categories
     @search = Category.ransack params[:q]
-    @categories_for_select = Category.pluck(:name, :id)
     @categories = @search.result.includes(:parent, :childrens, :posts)
       .page(params[:page]).per Settings.admin.categories.per_page
+  end
+
+  def load_parent_categories
+    case action_name
+    when "index" || "create"
+      @parent_categories = Category.all_categories @categories_parent_master
+    when "show" || "update"
+      @parent_categories = Category.all_categories_except @category, @categories_parent_master
+    end
   end
 
   def category_params

@@ -18,9 +18,20 @@ User.create(name: "admin",
   email: "admin@example.com",
   role: 0)
 
+4.times do |n|
+  category = Category.create name: "Category #{n+1}", description: "abc"
+  3.times do |m|
+    c2 = Category.create name: "Category #{n+1} #{m+1}", description: "abc", parent_id: category.id
+    Category.create name: "Category #{n+1} #{m+1} 1", description: "abc", parent_id: c2.id
+    Category.create name: "Category #{n+1} #{m+1} 2", description: "abc", parent_id: c2.id
+  end
+end
+
 Category.create!(name: "Tam su",
   description: "Noi nhung loi yeu thuong",
   parent_id: nil)
 Category.create!(name: "Tin tuc",
   description: "Cap nhat tin tuc doi song",
   parent_id: nil)
+
+
