@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
-  mount Ckeditor::Engine => '/ckeditor'
   devise_for :users
   root "static_pages#home"
+  mount Ckeditor::Engine => "/ckeditor"
+
+  resources :posts, only: :show
 
   namespace :admin do
+    root "posts#index"
     resources :categories
-    resources :categories, only: [:index, :new, :create]
     resources :users, only: [:index, :update]
     resources :posts
   end
