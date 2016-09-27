@@ -1,0 +1,6 @@
+en:
+  views:
+    shared:
+      error_messages:
+        message: "The form contains"
+        error: "error"

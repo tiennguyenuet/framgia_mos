@@ -2,6 +2,8 @@ en:
   admin:
     posts:
       index:
+        delete_selected: "Delete Selected"
+        index: "index"
         index_posts: "List all posts"
         search: "Search"
         search_title: "Enter title..."
@@ -14,13 +16,18 @@ en:
         search_users: "Choose user..."
         category: "Category"
         save: "Save"
+        are_you_sure: "Are you sure?"
+        tooltip_show: "Show"
+        tooltip_delete: "Delete"
+        tooltip_edit: "Edit"
       create:
         error_audio: "Please choose a music for this post!"
         success: "Created post success!"
         fail: "Created post fail!"
       destroy:
-        success: "Deleted post success!"
-        fail: "Deleted post fail!"
+        success: "Deleted posts success!"
+        fail: "Deleted posts fail!"
+        must_select: "You must select posts to delete!"
       edit:
         success: "Edited post success!"
         fail: "Edited post fail!"
@@ -29,6 +36,7 @@ en:
         tooltip_delete: "Delete"
         tooltip_edit: "Edit"
         delete_confirm: "Delete Confirm"
+        are_you_sure: "Are you sure?"
       form:
         save: "Update"
 
