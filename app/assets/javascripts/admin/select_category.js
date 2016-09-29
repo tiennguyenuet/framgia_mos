@@ -11,9 +11,9 @@ $(document).on('turbolinks:load', function() {
     }
   });
 
-  $('.post_ids_').on('change', function(){
+  $('.category_ids_').on('change', function(){
     var i = true;
-    $('.post_ids_').each(function(){
+    $('.category_ids_').each(function(){
       if ($(this).prop('checked') == false) {
         i = false;
       }
@@ -21,7 +21,7 @@ $(document).on('turbolinks:load', function() {
     $('#selectAll').prop('checked', i);
   });
 
-  $('.btn-delete-posts').click(function(e) {
+  $('.btn-delete-categories').click(function(e) {
     check_delete = false;
     $(':checkbox').each(function(){
       if (this.checked == true){
@@ -30,7 +30,7 @@ $(document).on('turbolinks:load', function() {
       }
     });
     if (check_delete == false){
-      alert('Please choose posts to delete!');
+      alert('Please choose categories to delete!');
       e.preventDefault();
     }
   });

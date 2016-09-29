@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   namespace :admin do
     root "posts#index"
     delete "destroy_multi_post", to: "posts#destroy"
+    delete "destroy_multi_category", to: "categories#destroy"
     resources :categories
     resources :users, only: [:index, :update]
     resources :posts
