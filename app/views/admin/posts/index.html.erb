@@ -26,26 +26,73 @@
             class: "btn btn-info margin_left_btn_submit" %>
         <% end %>
       </div>
-      <div class="table-responsive">
-        <table class="table table-hovered">
-          <thead>
-            <th class="column-title-width">
-              <%= sort_link @search, :title, t(".title") %>
-            </th>
-            <th class="column-created_at-width">
-              <%= sort_link @search, :created_at, t(".created_at") %>
-            </th>
-            <th class="column-status-width"><%= t(".status") %></th>
-            <th class="column-action-width"><%= t ".action" %></th>
-          </thead>
-          <tbody>
-            <%= render(partial: "post", collection: @posts, as: :post) || t(".no_post_display") %>
-          </tbody>
-        </table>
+      <%= form_tag admin_destroy_multi_post_path,
+        method: :delete, data: {confirm: t(".are_you_sure")},
+        id: "formDeleteMultiplePost" do %>
+        <div class="pull-right">
+          <%= submit_tag t(".delete_selected"), class: "btn btn-primary" %>
+        </div>
+        <div class="clearfix"></div>
+        <div class="table-responsive table-post">
+          <table class="table table-bordered">
+            <thead>
+              <tr class="active">
+                <th class="text-center"><%= t(".index") %></th>
+                <th class="column-title-width">
+                  <%= sort_link @search, :title, t(".title") %>
+                </th>
+                <th class="column-created_at-width">
+                  <%= sort_link @search, :created_at, t(".created_at") %>
+                </th>
+                <th class="column-status-width"><%= t(".status") %></th>
+                <th class="column-action-width"><%= t ".action" %></th>
+                <th>
+                  <input type="checkbox" id="selectAll" value="selectAll">
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @posts.each_with_index do |post, index|%>
+                <tr>
+                  <td><%= index_for @posts, index,
+                    Settings.admin.posts.per_page %></td>
+                  <td><%= post.title %></td>
+                  <td><%= post.created_at.strftime("%m/%d/%Y at %I:%M%p") %></td>
+                  <td>
+                    <% if post.waiting? %>
+                      <span class="status-waiting"><%= post.status %>
+                    <% elsif post.accepted? %>
+                      <span class="status-accepted"><%= post.status %>
+                    <% else %>
+                      <span class="status-reject"><%= post.status %>
+                    <% end %>
+                  </td>
+                  <td>
+                    <%= link_to "#", title: t(".tooltip_show") do %>
+                      <span class="glyphicon glyphicon-info-sign"></span>
+                    <% end %>
+                    <%= link_to edit_admin_post_path(post),
+                      title: t(".tooltip_edit") do %>
+                      <span class="glyphicon glyphicon-pencil"></span>
+                    <% end %>
+                    <%= link_to [:admin, post], method: :delete,
+                      "data-toggle": "tooltip", title: t(".tooltip_delete"),
+                      data: {confirm: t(".are_you_sure")}, name: "post_ids[]",
+                      value: post.id do %>
+                      <i class="glyphicon glyphicon-trash"></i>
+                    <% end %>
+                  </td>
+                  <td><%= check_box_tag "post_ids[]", post.id,
+                    false, class: "post_ids_" %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+        <%= paginate @posts, theme: "twitter-bootstrap-3",
+          pagination_class: "pagination-sm" %>
       </div>
-      <%= paginate @posts, theme: "twitter-bootstrap-3",
-        pagination_class: "pagination-sm" %>
-    </div>
+    <% end %>
     <div id="post-new"
       class="tab-pane fade <%= 'in active' if params[:action] == 'create' %>">
       <%= simple_form_for [:admin, @post], html: {multipart: true} do |f| %>
@@ -56,6 +103,10 @@
             Post.post_types.keys.to_a,
             {include_blank: false},
             class: "form-control selectpicker", data: {"live-search": true} %>
+        </div>
+
+        <div class="field">
+          <%= f.hidden_field :status, value: :accepted %>
         </div>
 
         <div class="field">
@@ -90,7 +141,6 @@
         <div class="field">
           <%= f.submit t(".save"), class: "btn btn-primary" %>
         </div>
-
       <% end %>
     </div>
   </div>

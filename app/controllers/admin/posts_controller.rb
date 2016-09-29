@@ -15,13 +15,18 @@ class Admin::PostsController < Admin::BaseController
   end
 
   def create
-    @post = Post.new post_params
     if @post.save
       flash[:success] = t ".success"
       redirect_to admin_posts_path
     else
+      @search = Post.all.ransack params[:q]
+      @categories_for_select = Category.pluck(:name, :id)
+      @users_for_select = User.pluck(:name, :id)
+      @posts = @search.result.order(created_at: :desc).page(params[:page])
+        .per Settings.admin.posts.per_page
+      load_all_categories
       flash[:danger] = t ".fail"
-      render :new
+      render :index
     end
   end
 
@@ -38,12 +43,17 @@ class Admin::PostsController < Admin::BaseController
     end
   end
 
-
   def destroy
-    if @post.destroy
-      flash[:success] = t ".success"
+    ids = params[:post_ids].nil? ? params[:id] : params[:post_ids]
+    if ids.nil?
+      flash[:danger] = t ".must_select"
     else
-      flash[:danger] = t ".fail"
+      @posts = Post.find ids
+      if Post.destroy @posts
+        flash[:success] = t ".success"
+      else
+        flash[:danger] = t ".fail"
+      end
     end
     redirect_to admin_posts_path
   end
