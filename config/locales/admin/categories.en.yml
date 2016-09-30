@@ -15,12 +15,18 @@ en:
         submit_search: "Search"
         category_parent: "Parent"
         parent: "Parent"
+        delete_selected: "Delete Selected"
+        are_you_sure: "Are you sure?"
       create:
         success: "Created successfully"
       destroy:
-        deleted: "Deleted successfully"
-        not_deleted: "Deleted fail"
-        check_destroy: "Exist childrens or posts in category, can't delete"
+        success: "Deleted successfully!"
+        fail: "Deleted fail!"
+        deleted: "Deleted successfully!"
+        not_deleted: "Deleted fail!"
+        check_destroy: "Exist childrens or posts in category, can't delete!"
+        must_select: "You must select categories to delete!"
+        not_delete: "Category has childrens or posts, not delete!"
       update:
         success: "Updated successfully"
       show:

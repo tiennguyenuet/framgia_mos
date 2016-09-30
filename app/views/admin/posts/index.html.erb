@@ -30,7 +30,8 @@
         method: :delete, data: {confirm: t(".are_you_sure")},
         id: "formDeleteMultiplePost" do %>
         <div class="pull-right">
-          <%= submit_tag t(".delete_selected"), class: "btn btn-primary" %>
+          <%= submit_tag t(".delete_selected"),
+            class: "btn btn-primary btn-delete-posts" %>
         </div>
         <div class="clearfix"></div>
         <div class="table-responsive table-post">

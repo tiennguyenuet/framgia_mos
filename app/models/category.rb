@@ -5,6 +5,7 @@ class Category < ActiveRecord::Base
     dependent: :destroy
 
   validates :name, presence: true, uniqueness: true
+  validate :not_delete, on: :destroy
 
   scope :parent_master, ->{where parent_id: nil}
 
@@ -24,5 +25,12 @@ class Category < ActiveRecord::Base
     level = 0
     level = 1 + self.parent.level if self.parent
     level
+  end
+
+  private
+  def not_delete
+    if self.childrens.any? || self.posts.any?
+      errors.add(:destroy, I18n.t(".not_delete"))
+    end
   end
 end

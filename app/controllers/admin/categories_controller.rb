@@ -33,12 +33,18 @@ class Admin::CategoriesController < Admin::BaseController
   end
 
   def destroy
-    if @category.childrens.any? || @category.posts.any?
-      flash[:danger] = t "admin.categories.destroy.check_destroy"
+    ids = params[:category_ids].nil? ? params[:id] : params[:category_ids]
+    if ids.nil?
+      flash[:danger] = t ".must_select"
     else
-      @category.destroy ? flash[:success] = t(".deleted") : flash[:danger] = t(".not_deleted")
+      @categories = Category.find ids
+      if Category.destroy @categories
+        flash[:success] = t ".success"
+      else
+        flash[:danger] = t ".fail"
+      end
     end
-    redirect_to :back
+    redirect_to admin_categories_path
   end
 
   private
