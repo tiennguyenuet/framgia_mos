@@ -1,0 +1,32 @@
+<div class="admin-action">
+  <ul class="nav nav-tabs">
+    <li class="<%= 'active' if params[:action] == 'show' %>">
+      <a data-toggle="tab" href="#advertisment-show"><%= t ".show" %></a>
+    </li>
+    <li class="<%= 'active' if params[:action] == 'update' %>">
+      <a data-toggle="tab" href="#advertisment-edit"><%= t ".edit" %></a>
+    </li>
+  </ul>
+  <div class="clearfix"></div>
+  <div class="tab-content">
+    <div id="advertisment-show"
+      class="tab-pane fade <%= 'in active' if params[:action] == 'show' %>">
+      <h3><%= @advertisment.description %></h3>
+      <h3><%= @advertisment.url %></h3>
+    </div>
+    <div id="advertisment-edit"
+      class="tab-pane fade <%= 'in active' if params[:action] == 'update' %>">
+      <h3><%= t ".edit" + @advertisment.description %></h3>
+      <div class="advertisment-form">
+        <%= simple_form_for [:admin, @advertisment] do |f| %>
+          <%= f.error_notification %>
+          <%= f.input :description, as: :text, input_html: {class: "form-control"} %>
+          <%= f.input :url, as: :text, input_html: {class: "form-control"} %>
+          <%= f.input :image, as: :file, input_html: {class: "form-control"} %>
+          <br>
+          <%= f.button :submit, class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

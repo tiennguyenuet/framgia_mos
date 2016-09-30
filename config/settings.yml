@@ -7,6 +7,8 @@ admin:
     per_page: 5
     normal_post: 0
     audio_post: 1
+  advertisments:
+    per_page: 5
 time_format:
   normal: "%d-%m-%Y %H:%M"
 

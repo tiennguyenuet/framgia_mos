@@ -9,8 +9,10 @@ Rails.application.routes.draw do
     root "posts#index"
     delete "destroy_multi_post", to: "posts#destroy"
     delete "destroy_multi_category", to: "categories#destroy"
+    delete "destroy_multi_advertisment", to: "advertisments#destroy"
     resources :categories
     resources :users, only: [:index, :update]
     resources :posts
+    resources :advertisments
   end
 end
