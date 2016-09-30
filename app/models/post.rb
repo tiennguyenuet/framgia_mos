@@ -17,6 +17,16 @@ class Post < ActiveRecord::Base
   validates :post_type, presence: true
   validate :validate_audio, on: :create
 
+  class << self
+    def each_month year
+      posts = Post.accepted.where("year(created_at) = #{Time.now.year}")
+        .order(:created_at).group_by {|post| post.created_at.month}
+      posts_per_month = posts.map do |post|
+        {name: Date::MONTHNAMES[post.first], y: post.last.size}
+      end
+    end
+  end
+
   private
   def validate_audio
     if self.post_type == Settings.admin.posts.audio_post

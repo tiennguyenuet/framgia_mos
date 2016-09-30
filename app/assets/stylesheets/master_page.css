@@ -37,12 +37,6 @@ ul li{
   margin-top: 10px;
 }
 
-body{
-  font-family: arial;
-  font-size: 13px;
-  background-image: url("bg.gif");
-}
-
 .wrapper_container{
   width: 1000px;
   margin: 0px auto;
