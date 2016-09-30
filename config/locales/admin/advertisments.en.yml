@@ -1,0 +1,26 @@
+en:
+  admin:
+    advertisments:
+      index:
+        submit_search: "Search"
+        delete_selected: "Delete Selected"
+        index: "Index"
+        description: "Description"
+        url: "Url"
+        action: "Action"
+        search_url: "url"
+        search_description: "description"
+        all_advertisments: "All Advertisment"
+        new_advertisment: "New Advertisment"
+        are_you_sure: "Are you sure?"
+        delete_confirm: "Delete confirm"
+      create:
+        success: "Create advertisment success!"
+        fail: "Create advertisment fail"
+      destroy:
+        success: "Delete advertisment success!"
+        fail: "Delete advertisment fail"
+        must_select: "You must select advertisments to delete!"
+      update:
+        success: "Update advertisment success!"
+        fail: "Update advertisment fail"

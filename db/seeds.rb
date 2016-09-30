@@ -5,6 +5,12 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+environment_seed_file = File.join(Rails.root, 'db', 'seeds', "#{Rails.env}.rb")
+
+def seed_image(file_name)
+  File.open(File.join(Rails.root, "/app/assets/images/#{file_name}.jpg"))
+end
+
 (1..10).each do |id|
   User.create(name: "User #{id}",
     user_name: "user#{id}",
@@ -33,5 +39,11 @@ Category.create!(name: "Tam su",
 Category.create!(name: "Tin tuc",
   description: "Cap nhat tin tuc doi song",
   parent_id: nil)
+
+(1..20).each do |id|
+  Advertisment.create(description: "Description #{id}",
+    url: "url #{id}",
+    image: "xe_dap")
+end
 
 
