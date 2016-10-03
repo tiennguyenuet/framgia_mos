@@ -1,0 +1,41 @@
+<div class="statistic">
+  <div class="data">
+    <div class="row">
+        <div class="col-md-6 col-sm-6 col-xs-12">
+          <%= link_to "#" do %>
+            <div class="info-box">
+              <span class="info-box-icon bg-green"><i class="fa fa-bicycle"></i></span>
+                <div class="info-box-content">
+                  <span class="info-box-text"><%= t ".pending_confessions" %></span>
+                  <span class="info-box-number"><%= @pending_confessions.size %></span>
+                </div>
+            </div>
+          <% end %>
+        </div>
+
+        <div class="col-md-6 col-sm-6 col-xs-12">
+          <%= link_to "#" do %>
+            <div class="info-box">
+              <span class="info-box-icon bg-red"><i class="fa fa-newspaper-o"></i></span>
+              <div class="info-box-content">
+                <span class="info-box-text"><%= t ".pending_posts" %></span>
+                <span class="info-box-number"><%= @waiting_posts.size %></span>
+              </div>
+            </div>
+          <% end %>
+        </div>
+    </div>
+  </div>
+  <div id="charts">
+    <%= content_tag :div, "", id: "posts-data",
+      data: {posts_per_month: @posts_per_month} %>
+    <%= content_tag :div, "", id: "confessions-data",
+      data: {confessions_per_month: @confessions_per_month} %>
+    <div class="col-md-6 col-sm-6 col-xs-12">
+      <div id="post-chart" class="chart"></div>
+    </div>
+    <div class="col-md-6 col-sm-6 col-xs-12">
+      <div id="confession-chart" class="chart"></div>
+    </div>
+  </div>
+</div>

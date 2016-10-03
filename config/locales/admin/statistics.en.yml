@@ -1,0 +1,5 @@
+en:
+  admin:
+    statistics:
+      pending_confessions: "Pending Confessions"
+      pending_posts: "Pending Posts"

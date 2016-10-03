@@ -47,3 +47,10 @@ Category.create!(name: "Tin tuc",
 end
 
 
+9.times do |n|
+  Post.create title: "Post #{n+1}", description: "abc", created_at: (Time.now - n.month)
+end
+
+9.times do |n|
+  Confession.create content: "abc", created_at: (Time.now - n.month)
+end

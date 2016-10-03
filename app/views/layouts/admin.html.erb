@@ -4,31 +4,30 @@
     <title><%= t ".admin_title" %></title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track": "reload" %>
+    <%= stylesheet_link_tag "application", media: "all",
+      "data-turbolinks-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbolinks-track": "reload" %>
+    <script src="http://code.highcharts.com/highcharts.js"></script>
   </head>
 
   <body id="body-admin" class="skin-blue sidebar-mini wysihtml5-supported" >
-    <div class="container">
-      <div class="banner center">
-        <%= image_tag "banner.jpg", size: "1140x150" %>
-      </div>
-      <div class="wrapper">
-        <%= render "layouts/admin_header" %>
-        <div class="content-wrapper">
-          <section class="content-header">
-            <ol class="breadcrumb">
-            </ol>
-          </section>
-          <section class="content">
-            <div class="message">
-              <% flash.each do |message_type, message| %>
-                <%= content_tag :div, message, class: "alert alert-#{message_type}" %>
-              <% end %>
-            </div>
-            <%= yield %>
-          </section>
-        </div>
+    <div class="banner center">
+    </div>
+    <div class="wrapper">
+      <%= render "layouts/admin_header" %>
+      <div class="content-wrapper">
+        <section class="content-header">
+          <ol class="breadcrumb">
+          </ol>
+        </section>
+        <section class="content">
+          <div class="message">
+            <% flash.each do |message_type, message| %>
+              <%= content_tag :div, message, class: "alert alert-#{message_type}" %>
+            <% end %>
+          </div>
+          <%= yield %>
+        </section>
       </div>
     </div>
   </body>
