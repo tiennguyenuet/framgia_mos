@@ -8,14 +8,15 @@
       <ul class="nav navbar-nav">
         <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img class="user-image">
-              <span class="hidden-xs"></span>
+              <%= image_tag "current_user.png", class: "user-image" %>
+              <span class="hidden-xs"><%= t ".admin" %></span>
             </a>
             <ul class="dropdown-menu">
               <li class="user-header">
-                <img class="img-circle">
+                <%= image_tag "current_user.png", class: "img-circle" %>
 
                 <p>
+                  <%= t ".admin" %>
                 </p>
               </li>
               <li class="user-footer">
@@ -37,24 +38,23 @@
     <section class="sidebar">
       <ul class="sidebar-menu">
         <li>
+          <%= link_to "/admin" do %>
+            <i class="fa fa-tachometer"></i>
+            <span><%= t ".dashboard" %>
+            </span>
+          <% end %>
+        </li>
+        <li>
           <%= link_to admin_users_path do %>
             <i class="fa fa-user"></i>
             <span><%= t ".users" %>
             </span>
           <% end %>
         </li>
-        <li id="evaluations-header" class="treeview">
-          <a href="javascript:void(0)">
-            <i class="fa fa-newspaper-o"></i><span><%= t ".posts" %></span>
-            <i class="fa fa-angle-left pull-right"></i>
-          </a>
-          <ul class="treeview-menu">
-            <li>
-              <%= link_to admin_posts_path do %>
-                <i class="fa fa-tags"></i><span><%= t ".manage posts" %>
-              <% end %>
-            </li>
-          </ul>
+        <li>
+          <%= link_to admin_posts_path do %>
+            <i class="fa fa-newspaper-o"></i><span><%= t ".manage posts" %>
+          <% end %>
         </li>
         <li>
           <a href=""><i class="fa fa-heart-o"></i><span><%= t ".confesstions" %></span></a>
