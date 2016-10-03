@@ -41,6 +41,12 @@ $(document).on('turbolinks:load', function() {
       $(this).find('.fa-angle-left').removeClass('fa-angle-left').addClass('fa-angle-down')
     }
   });
+
+  $('.ckeditor-field').each(function() {
+    CKEDITOR.replace($(this).attr('id'));
+  });
+
+  $('.selectpicker').selectpicker();
 });
 
 (function(d, s, id) {
