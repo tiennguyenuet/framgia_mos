@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+
   root "static_pages#home"
   mount Ckeditor::Engine => "/ckeditor"
 
@@ -15,5 +16,8 @@ Rails.application.routes.draw do
     resources :users, only: [:index, :update]
     resources :posts
     resources :advertisments
+    devise_for :users, controllers: {
+      sessions: "admin/sessions"
+    }
   end
 end
