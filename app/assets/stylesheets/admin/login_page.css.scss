@@ -1,0 +1,37 @@
+.cont{
+  position: relative;
+  height: 100vh;
+  background: #85b6b6;
+  .form-login{
+    background-color: #205b6c;
+    margin-top: 10%;
+    color: #fff;
+    border-radius: 10px;
+    color: #fff;
+  }
+  .email-text{
+    border-radius: 8px;
+  }
+
+  .pass-text{
+    border-radius: 8px;
+  }
+
+  .login-icon{
+    text-align: center;
+    align-content: center;
+  }
+
+  .login-icon img{
+    margin: 2% auto;
+    width: 20%;
+    height: 20%;
+  }
+
+  .actions{
+    margin-bottom: 5%;
+  }
+  a{
+    color: #fff;
+  }
+}
