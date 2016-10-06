@@ -1,0 +1,27 @@
+<div class="admin-action">
+  <ul class="nav nav-tabs">
+    <li class="<%= 'active' if params[:action] == 'show' %>">
+      <a data-toggle="tab" href="#confession-show"><%= t ".show" %></a>
+    </li>
+  </ul>
+  <div class="clearfix"></div>
+  <div class="tab-content">
+    <div id="confession-show"
+      class="tab-pane fade <%= 'in active' if params[:action] == 'show' %>">
+      <br>
+      <div class="confession-form">
+        <%= simple_form_for [:admin, @confession] do |f| %>
+          <%= f.error_notification %>
+          <%= f.hidden_field :status, value: :accepted %>
+          <%= f.input :content, disabled: true, as: :text,
+            input_html: {class: "form-control"} %>
+            <br>
+          <%= f.input :admin_comment, label: t(".admin_comment"),
+            as: :text, input_html: {class: "form-control"} %>
+            <br>
+          <%= f.submit t(".complete_comment"), class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

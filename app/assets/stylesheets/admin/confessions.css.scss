@@ -1,0 +1,36 @@
+.width_text_field_search {
+  width: 30%;
+}
+
+.column-content-width {
+  width: 40%;
+}
+
+.column-created_at-width {
+  width: 20%;
+}
+
+.column-status-width {
+  width: 15%;
+}
+
+.column-delete-all-width {
+  width: 10%;
+}
+
+.column-action-width {
+  width: 15%;
+}
+
+.menu-action li{
+  float:left;
+  display: inline;
+  list-style: none;
+  margin-left: 10px;
+}
+
+.btn-action{
+  border: none;
+  background: transparent;
+  color: #888;
+}

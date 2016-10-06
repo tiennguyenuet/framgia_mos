@@ -1,0 +1,34 @@
+en:
+  admin:
+    confessions:
+      index:
+        tooltip_delete: "Delete"
+        title: "Manage confessions"
+        index: "index"
+        new: "new"
+        search: "Search"
+        search_statuses: "Choose status..."
+        search_content: "Enter content..."
+        content: "Content"
+        status: "Status"
+        created_at: "Create date"
+        action: "Action"
+        no_confession_display: "There are no confession display!"
+        list_coffessions: "List all confessions"
+        delete_all: "Delete all"
+        load-more: "Load more"
+        confirm_delete_multi: "Are you sure delete these confessions?"
+        delete_multi: "Delete selected"
+        read_more: "read more"
+        none: "none"
+        delete_confirm: "Are you sure delete this confession? Their will be tranfer into Trash"
+      update:
+        success: "Updated confession completely!"
+        error: "Update error!"
+      destroy:
+        fail: "You must select to delete"
+        success: "Deleted confession successfully!"
+        error: "Delete error!"
+      show:
+        complete_comment: "Comment"
+        accept: "Accept"
