@@ -1,0 +1,99 @@
+<% provide :title, t(".title") %>
+
+<div class="admin-action">
+  <ul class="nav nav-tabs">
+    <li class="<%= 'active' if params[:action] == 'index' %>">
+      <a data-toggle="tab" href="#confession-index"><%= t ".index" %></a>
+    </li>
+  </ul>
+  <div class="clearfix"></div>
+  <div class="tab-content">
+    <div id="confession-index"
+      class="tab-pane fade <%= 'in active' if params[:action] == 'index' %>">
+      <br>
+      <h2><%= t ".list_coffessions" %></h2>
+      <br>
+      <div>
+        <%= search_form_for [:admin, @search], class: "form-inline" do |f| %>
+          <%= f.text_field :content_cont,
+            placeholder: t(".search_content"),
+            class: "form-control width_text_field_search" %>
+          <%= f.select :status_eq, @statuses_for_select,
+            {include_blank: t(".search_statuses")}, class: "form-control" %>
+          <%= f.submit t(".search"),
+            class: "btn btn-info" %>
+        <% end %>
+      </div>
+      <br>
+      <%= form_tag admin_destroy_multi_confession_path, method: :delete,
+        data: {confirm: t(".confirm_delete_multi")},
+        id: "formDeleteMultipleConfession" do %>
+        <div class="pull-right">
+          <%= submit_tag t(".delete_multi"),
+            class: "btn btn-primary btn-delete-confessions" %>
+        </div>
+        <div class="clearfix"></div>
+        <div class="table-responsive">
+          <table class="table table-hovered">
+            <thead>
+              <th class="column-content-width">
+                <%= t ".content" %>
+              </th>
+              <th class="column-created_at-width">
+                <%= sort_link @search, :created_at, t(".created_at") %>
+              </th>
+              <th class="column-status-width"><%= t(".status") %></th>
+              <th class="column-action-width"><%= t ".action" %></th>
+              <th>
+                <input type="checkbox" id="selectAll" value="selectAll">
+              </th>
+            </thead>
+            <tbody class="load-more-confession">
+              <% @confessions.each do |confession| %>
+                <tr class="record">
+                  <td>
+                    <%= truncate confession.content,
+                      length: Settings.admin.confessions.length_read_more %>
+                    <%= link_to t(".read_more"), admin_confession_path(confession) %>
+                  </td>
+                  <td>
+                    <%= confession.created_at.strftime(Settings.admin.format_date_time) %>
+                  </td>
+                  <td>
+                    <% if confession.pending? %>
+                      <a data-toggle="tooltip" class="tooltipLink"
+                        title="<%= confession.status %>">
+                        <i class="fa fa-spinner"></i>
+                      </a>
+                    <% elsif confession.accepted? %>
+                      <a data-toggle="tooltip" class="tooltipLink"
+                        title="<%= confession.status %>">
+                        <i class="fa fa-check"></i>
+                      </a>
+                    <% end %>
+                  </td>
+                  <td>
+                    <ul class="menu-action">
+                      <li>
+                        <%= link_to [:admin, confession], method: :delete,
+                          data: {confirm: t(".delete_confirm")}, title: t(".tooltip_delete") do %>
+                          <span class="glyphicon glyphicon-trash"></span>
+                        <% end %>
+                      </li>
+                    </ul>
+                  </td>
+                  <td>
+                    <%= check_box_tag "confession_ids[]", confession.id, false,
+                      class: "confession_ids_" %>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+        <%= paginate @confessions, theme: "twitter-bootstrap-3",
+          pagination_class: "pagination-sm" %>
+      <% end %>
+    </div>
+  </div>
+</div>

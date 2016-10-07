@@ -52,10 +52,11 @@ ActiveRecord::Schema.define(version: 20160916131715) do
   end
 
   create_table "confessions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.text     "content",    limit: 65535
-    t.integer  "status"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.text     "content",       limit: 65535
+    t.string   "admin_comment"
+    t.integer  "status",                      default: 0
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
   end
 
   create_table "likes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
