@@ -17,7 +17,7 @@
           <%= f.text_field :name_cont, placeholder: t(".search_name"),
             class: "form-control" %>
           <%= f.select :parent_id_eq,
-            @categories_parent_master.pluck(:name, :id),
+            @category_roots.pluck(:name, :id),
             {include_blank: t(".search_parent")}, class: "form-control" %>
           <%= f.submit t(".submit_search"),
             class: "btn btn-info" %>
@@ -88,7 +88,7 @@
           <select class="selectpicker" data-size="9" data-live-search="true"
             name="category[parent_id]" id="category_parent_id">
             <option value=""><%= t ".parent" %></option>
-            <%= render "select_category", categories: @parent_categories %>
+            <%= render "select_category", categories: @nested_categories %>
           </select>
           <br>
           <%= f.button :submit, class: "btn btn-primary" %>

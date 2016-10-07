@@ -1,11 +1,11 @@
-<% categories.each do |category, childrens| %>
+<% categories.each do |category, children| %>
     <% if category %>
-      <% if @categories_parent_master.include? category %>
+      <% if @category_roots.include? category %>
         <option data-divider="true"></option>
       <% end %>
       <option value="<%= category.id %>">
         <%= "....." * category.level + category.name %>
       </option>
-      <%= render "select_category", categories: childrens %>
+      <%= render "select_category", categories: children %>
     <% end %>
 <% end %>

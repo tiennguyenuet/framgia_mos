@@ -47,11 +47,13 @@ Category.create!(name: "Tin tuc",
 end
 
 9.times do |n|
-  Post.create title: "Post #{n+1}", description: "abc", created_at: (Time.now - n.month)
+  Post.create title: "Post #{n+1}", description: "abc", created_at: (Time.now - n.month), status: :accepted
 end
 
-
 (1..10).each do |cfs_id|
-  Confession.create(content: "Confession #{cfs_id} abc abc abc...",
-    status: "pending")
+  Confession.create content: "Confession #{cfs_id} abc abc abc...", status: :pending
+end
+
+9.times do |n|
+  Confession.create content: "abc", created_at: (Time.now - n.month), status: :accepted
 end

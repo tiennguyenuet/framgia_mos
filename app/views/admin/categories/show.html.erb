@@ -25,7 +25,7 @@
           <select class="selectpicker" data-size="9" data-live-search="true"
             name="category[parent_id]" id="category_parent_id">
             <option value=""><%= t ".parent" %></option>
-            <%= render "select_category", categories: @parent_categories %>
+            <%= render "select_category", categories: @nested_categories %>
           </select>
           <br>
           <%= f.button :submit, class: "btn btn-primary" %>
