@@ -110,6 +110,7 @@ ActiveRecord::Schema.define(version: 20160916131715) do
     t.date     "birthday"
     t.string   "phone_number"
     t.string   "address"
+    t.string   "avatar"
     t.integer  "status",                 default: 0
     t.integer  "role",                   default: 1
     t.datetime "created_at",                          null: false
