@@ -7,6 +7,7 @@ class CreateUsers < ActiveRecord::Migration
       t.date :birthday
       t.string :phone_number
       t.string :address
+      t.string :avatar
       t.integer :status, default: 0
       t.integer :role, default: 1
 

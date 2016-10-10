@@ -12,6 +12,8 @@ class User < ActiveRecord::Base
   has_many :replies, dependent: :destroy
   has_many :likes, dependent: :destroy
 
+  mount_uploader :avatar, UserAvatarUploader
+
   validates :name, presence: true, length: {maximum: 50}
   enum role: [:admin, :user]
   enum status: [:active, :blocked]
