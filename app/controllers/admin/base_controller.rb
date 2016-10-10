@@ -1,10 +1,10 @@
 class Admin::BaseController < ApplicationController
   layout "admin"
 
-  before_action :load_categories_parent_master
+  before_action :load_category_roots
 
   private
-  def load_categories_parent_master
-    @categories_parent_master = Category.parent_master
+  def load_category_roots
+    @category_roots = Category.roots
   end
 end

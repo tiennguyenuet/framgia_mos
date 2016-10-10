@@ -1,6 +1,6 @@
 class Admin::CategoriesController < Admin::BaseController
   load_and_authorize_resource
-  before_action :load_parent_categories, only: [:index, :show]
+  before_action :load_nested_categories, only: [:index, :show]
 
   def index
     @new_category = Category.new
@@ -14,7 +14,7 @@ class Admin::CategoriesController < Admin::BaseController
     else
       @new_category = @category
       load_categories
-      load_parent_categories
+      load_nested_categories
       render :index
     end
   end
@@ -27,7 +27,7 @@ class Admin::CategoriesController < Admin::BaseController
       flash[:success] = t ".success"
       redirect_to [:admin, @category]
     else
-      load_parent_categories
+      load_nested_categories
       render :show
     end
   end
@@ -50,16 +50,15 @@ class Admin::CategoriesController < Admin::BaseController
   private
   def load_categories
     @search = Category.ransack params[:q]
-    @categories = @search.result.includes(:parent, :childrens, :posts)
+    @categories = @search.result.includes(:parent, :children, :posts)
       .page(params[:page]).per Settings.admin.categories.per_page
   end
 
-  def load_parent_categories
-    case action_name
-    when "index" || "create"
-      @parent_categories = Category.all_categories @categories_parent_master
-    when "show" || "update"
-      @parent_categories = Category.all_categories_except @category, @categories_parent_master
+  def load_nested_categories
+    if action_name == "index" || "create"
+      @nested_categories = Category.all_categories @category_roots
+    elsif action_name == "show" || "update"
+      @nested_categories = Category.all_categories_except @category, @category_roots
     end
   end
 

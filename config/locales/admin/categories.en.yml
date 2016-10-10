@@ -24,9 +24,9 @@ en:
         fail: "Deleted fail!"
         deleted: "Deleted successfully!"
         not_deleted: "Deleted fail!"
-        check_destroy: "Exist childrens or posts in category, can't delete!"
+        check_destroy: "Exist children or posts in category, can't delete!"
         must_select: "You must select categories to delete!"
-        not_delete: "Category has childrens or posts, not delete!"
+        not_delete: "Category has children or posts, not delete!"
       update:
         success: "Updated successfully"
       show:

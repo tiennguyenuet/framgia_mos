@@ -23,9 +23,16 @@ ActiveRecord::Schema.define(version: 20160916131715) do
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.string   "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
     t.integer  "parent_id"
+    t.integer  "lft",                        null: false
+    t.integer  "rgt",                        null: false
+    t.integer  "depth",          default: 0, null: false
+    t.integer  "children_count", default: 0, null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.index ["lft"], name: "index_categories_on_lft", using: :btree
+    t.index ["parent_id"], name: "index_categories_on_parent_id", using: :btree
+    t.index ["rgt"], name: "index_categories_on_rgt", using: :btree
   end
 
   create_table "ckeditor_assets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

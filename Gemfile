@@ -30,6 +30,7 @@ gem "simple_form"
 gem "bootstrap-kaminari-views"
 gem "jquery-ui-rails"
 gem "bootstrap-select-rails"
+gem "awesome_nested_set"
 
 group :development, :test do
   gem "byebug", platform: :mri
