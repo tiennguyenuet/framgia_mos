@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
+
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+    :recoverable, :rememberable, :trackable, :validatable,
+    :omniauthable, :omniauth_providers => [:facebook, :google_oauth2, :twitter]
   has_many :active_relationships, class_name: Relationship.name,
     foreign_key: :follower_id, dependent: :destroy
   has_many :passive_ralationships, class_name: Relationship.name,
@@ -17,4 +19,24 @@ class User < ActiveRecord::Base
   validates :name, presence: true, length: {maximum: 50}
   enum role: [:admin, :user]
   enum status: [:active, :blocked]
+
+  class << self
+    def from_omniauth auth
+      where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+        user.email = auth.info.email
+        user.name = auth.info.name
+        user.avatar = auth.info.image
+        user.password = Devise.friendly_token[0,20]
+      end
+    end
+
+    def new_with_session params, session
+      super.tap do |user|
+        if data = session["devise.facebook_data"] &&
+          session["devise.facebook_data"]["extra"]["raw_info"]
+          user.email = data["email"] if user.email.blank?
+        end
+      end
+    end
+  end
 end
