@@ -15,6 +15,15 @@
         </span>
       </div>
     </div>
+
+    <% if @post.audio? %>
+      <div class="audio-of-post">
+          <audio src="<%= @post.audio %>" autoplay controls loop>
+            <p><%= t ".not_support" %></p>
+          </audio>
+      </div>
+    <% end %>
+
     <div class="description">
       <strong><%= @post.description %></strong>
     </div>

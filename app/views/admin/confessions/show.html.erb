@@ -12,13 +12,15 @@
       <div class="confession-form">
         <%= simple_form_for [:admin, @confession] do |f| %>
           <%= f.error_notification %>
-          <%= f.hidden_field :status, value: :accepted %>
           <%= f.input :content, disabled: true, as: :text,
             input_html: {class: "form-control"} %>
             <br>
           <%= f.input :admin_comment, label: t(".admin_comment"),
             as: :text, input_html: {class: "form-control"} %>
             <br>
+          <%= f.label :status %><br/>
+          <%= f.select :status, Confession.statuses.keys.to_a,
+            input_html: {class: "form-control"} %> <br/> <br/>
           <%= f.submit t(".complete_comment"), class: "btn btn-primary" %>
         <% end %>
       </div>

@@ -61,15 +61,17 @@
                   </td>
                   <td>
                     <% if confession.pending? %>
-                      <a data-toggle="tooltip" class="tooltipLink"
-                        title="<%= confession.status %>">
-                        <i class="fa fa-spinner"></i>
-                      </a>
+                      <label class="label label-info">
+                        <%= confession.status %>
+                      </label>
                     <% elsif confession.accepted? %>
-                      <a data-toggle="tooltip" class="tooltipLink"
-                        title="<%= confession.status %>">
-                        <i class="fa fa-check"></i>
-                      </a>
+                      <label class="label label-success">
+                        <%= confession.status %>
+                      </label>
+                    <% else %>
+                      <label class="label label-danger">
+                        <%= confession.status %>
+                      </label>
                     <% end %>
                   </td>
                   <td>

@@ -38,14 +38,14 @@
           <table class="table table-bordered">
             <thead>
               <tr class="active">
-                <th class="text-center"><%= t(".index") %></th>
+                <th class="text-center"><%= t ".index" %></th>
                 <th class="column-title-width">
                   <%= sort_link @search, :title, t(".title") %>
                 </th>
                 <th class="column-created_at-width">
                   <%= sort_link @search, :created_at, t(".created_at") %>
                 </th>
-                <th class="column-status-width"><%= t(".status") %></th>
+                <th class="column-status-width"><%= t ".status" %></th>
                 <th class="column-action-width"><%= t ".action" %></th>
                 <th>
                   <input type="checkbox" id="selectAll" value="selectAll">
@@ -61,15 +61,15 @@
                   <td><%= post.created_at.strftime("%m/%d/%Y at %I:%M%p") %></td>
                   <td>
                     <% if post.waiting? %>
-                      <span class="status-waiting"><%= post.status %>
+                      <label class="label label-info"><%= post.status %></label>
                     <% elsif post.accepted? %>
-                      <span class="status-accepted"><%= post.status %>
+                      <label class="label label-success"><%= post.status %></label>
                     <% else %>
-                      <span class="status-reject"><%= post.status %>
+                      <label class="label label-danger"><%= post.status %></label>
                     <% end %>
                   </td>
                   <td>
-                    <%= link_to "#", title: t(".tooltip_show") do %>
+                    <%= link_to post_path post, title: t(".tooltip_show") do %>
                       <span class="glyphicon glyphicon-info-sign"></span>
                     <% end %>
                     <%= link_to edit_admin_post_path(post),

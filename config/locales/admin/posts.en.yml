@@ -28,7 +28,7 @@ en:
         success: "Deleted posts success!"
         fail: "Deleted posts fail!"
         must_select: "You must select posts to delete!"
-      edit:
+      update:
         success: "Edited post success!"
         fail: "Edited post fail!"
       post:
