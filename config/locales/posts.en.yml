@@ -2,3 +2,4 @@ en:
   posts:
     show:
       author: "Author"
+      not_support: "Your browser does not support HTML5 audio playback"

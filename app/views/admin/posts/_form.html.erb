@@ -36,6 +36,11 @@
     <%= f.input :audio, as: :file, input_html: {class: "form-control"} %>
   </div>
 
+  <div class="field">
+    <%= f.label :status %><br/>
+    <%= f.select :status, Post.statuses.keys.to_a %>
+  </div>
+
   <div class="clearfix"></div>
   <div class="field">
     <%= f.submit t(".save"), class: "btn btn-primary" %>
