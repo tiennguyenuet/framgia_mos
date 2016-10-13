@@ -4,7 +4,7 @@ en:
       index:
         tooltip_delete: "Delete"
         title: "Manage confessions"
-        index: "index"
+        index: "Index"
         new: "new"
         search: "Search"
         search_statuses: "Choose status..."
@@ -14,7 +14,7 @@ en:
         created_at: "Create date"
         action: "Action"
         no_confession_display: "There are no confession display!"
-        list_coffessions: "List all confessions"
+        list_coffessions: "All confessions"
         delete_all: "Delete all"
         load-more: "Load more"
         confirm_delete_multi: "Are you sure delete these confessions?"

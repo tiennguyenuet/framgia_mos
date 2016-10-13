@@ -3,22 +3,29 @@
 <div class="admin-action">
   <ul class="nav nav-tabs">
     <li class="<%= 'active' if params[:action] == 'index' %>">
-      <a data-toggle="tab" href="#post-index"><%= t ".index" %></a>
+      <a data-toggle="tab" href="#post-index">
+        <i class="glyphicon glyphicon-th-list"></i>
+        <%= t ".index" %>
+      </a>
     </li>
     <li class="<%= 'active' if params[:action] == 'create' %>">
-      <a data-toggle="tab" href="#post-new"><%= t ".new" %></a>
+      <a data-toggle="tab" href="#post-new">
+        <i class="glyphicon glyphicon-plus"></i>
+        <%= t ".new" %>
+      </a>
     </li>
   </ul>
   <div class="clearfix"></div>
   <div class="tab-content">
     <div id="post-index"
       class="tab-pane fade <%= 'in active' if params[:action] == 'index' %>">
-      <div>
+      <h3><%= t ".all_posts" %></h3>
+      <div class="search">
         <%= search_form_for [:admin, @search], class: "form-inline" do |f| %>
           <%= f.text_field :title_cont,
             placeholder: t(".search_title"),
             class: "form-control width_text_field_search" %>
-          <%= f.select :category_id, @categories_for_select,
+          <%= f.select :category_id_eq, @categories_for_select,
             {include_blank: t(".search_categories")}, class: "form-control" %>
           <%= f.select :user_id_eq, @users_for_select,
             {include_blank: t(".search_users")}, class: "form-control" %>
@@ -112,10 +119,11 @@
 
         <div class="field">
           <%= f.label :category_id %>
-          <%= f.select :category_id,
-            @categories.collect {|category| [category.name, category.id]},
-            {include_blank: false},
-            class: "form-control selectpicker", data: {"live-search": true} %>
+          <select class="selectpicker" data-size="9" data-live-search="true"
+            name="post[category_id]" id="post_category_id">
+            <option value=""><%= t ".category" %></option>
+            <%= render "shared/select_category", categories: @nested_categories %>
+          </select>
         </div>
 
         <div class="field">

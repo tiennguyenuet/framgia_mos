@@ -11,7 +11,7 @@ admin:
     per_page: 5
   confessions:
     per_page: 5
-    length_read_more: 100
+    length_read_more: 30
   format_date_time: "%m/%d/%Y at %I:%M%p"
 time_format:
   normal: "%d-%m-%Y %H:%M"

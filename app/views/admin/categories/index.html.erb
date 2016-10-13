@@ -1,10 +1,16 @@
 <div class="admin-action">
   <ul class="nav nav-tabs">
     <li class="<%= 'active' if params[:action] == 'index' %>">
-      <a data-toggle="tab" href="#category-index"><%= t ".index" %></a>
+      <a data-toggle="tab" href="#category-index">
+        <i class="glyphicon glyphicon-th-list"></i>
+        <%= t ".index" %>
+      </a>
     </li>
     <li class="<%= 'active' if params[:action] == 'create' %>">
-      <a data-toggle="tab" href="#category-new"><%= t ".new" %></a>
+      <a data-toggle="tab" href="#category-new">
+        <i class="glyphicon glyphicon-plus"></i>
+        <%= t ".new" %>
+      </a>
     </li>
   </ul>
   <div class="clearfix"></div>
@@ -88,7 +94,7 @@
           <select class="selectpicker" data-size="9" data-live-search="true"
             name="category[parent_id]" id="category_parent_id">
             <option value=""><%= t ".parent" %></option>
-            <%= render "select_category", categories: @nested_categories %>
+            <%= render "shared/select_category", categories: @nested_categories %>
           </select>
           <br>
           <%= f.button :submit, class: "btn btn-primary" %>

@@ -2,18 +2,19 @@
 
 <div class="admin-action">
   <ul class="nav nav-tabs">
-    <li class="<%= 'active' if params[:action] == 'index' %>">
-      <a data-toggle="tab" href="#confession-index"><%= t ".index" %></a>
+    <li class="active">
+      <a data-toggle="tab" href="#confession-index">
+        <i class="glyphicon glyphicon-th-list"></i>
+        <%= t ".index" %>
+      </a>
     </li>
   </ul>
   <div class="clearfix"></div>
   <div class="tab-content">
     <div id="confession-index"
       class="tab-pane fade <%= 'in active' if params[:action] == 'index' %>">
-      <br>
-      <h2><%= t ".list_coffessions" %></h2>
-      <br>
-      <div>
+      <h3><%= t ".list_coffessions" %></h3>
+      <div class="search">
         <%= search_form_for [:admin, @search], class: "form-inline" do |f| %>
           <%= f.text_field :content_cont,
             placeholder: t(".search_content"),
@@ -36,6 +37,7 @@
         <div class="table-responsive">
           <table class="table table-hovered">
             <thead>
+              <th><%= t ".index" %></th>
               <th class="column-content-width">
                 <%= t ".content" %>
               </th>
@@ -49,8 +51,11 @@
               </th>
             </thead>
             <tbody class="load-more-confession">
-              <% @confessions.each do |confession| %>
+              <% @confessions.each_with_index do |confession, index| %>
                 <tr class="record">
+                  <td>
+                    <%= index_for @confessions, index, Settings.admin.confessions.per_page %>
+                  </td>
                   <td>
                     <%= truncate confession.content,
                       length: Settings.admin.confessions.length_read_more %>

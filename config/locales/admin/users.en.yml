@@ -2,6 +2,7 @@ en:
   admin:
     users:
       index:
+        role: "Chose role"
         name: "Name"
         user_name: "Username"
         email: "Email"
