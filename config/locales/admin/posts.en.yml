@@ -2,8 +2,9 @@ en:
   admin:
     posts:
       index:
+        all_posts: "All posts"
         delete_selected: "Delete Selected"
-        index: "index"
+        index: "Index"
         index_posts: "List all posts"
         search: "Search"
         search_title: "Enter title..."

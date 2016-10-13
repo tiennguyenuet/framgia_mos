@@ -1,5 +1,4 @@
 class Admin::UsersController < Admin::BaseController
-  layout "admin"
   load_and_authorize_resource
 
   def index

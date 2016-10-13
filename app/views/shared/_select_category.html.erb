@@ -6,6 +6,6 @@
       <option value="<%= category.id %>">
         <%= "....." * category.level + category.name %>
       </option>
-      <%= render "select_category", categories: children %>
+      <%= render "shared/select_category", categories: children %>
     <% end %>
 <% end %>

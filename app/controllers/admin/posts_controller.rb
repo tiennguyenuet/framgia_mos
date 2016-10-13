@@ -65,6 +65,6 @@ class Admin::PostsController < Admin::BaseController
   end
 
   def load_all_categories
-    @categories = Category.all
+    @nested_categories = Category.all_categories @category_roots
   end
 end
