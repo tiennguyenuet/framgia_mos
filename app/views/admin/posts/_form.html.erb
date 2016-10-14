@@ -11,7 +11,7 @@
   <div class="field">
     <%= f.label :category_id %>
     <%= f.select :category_id,
-      @categories.collect {|category| [category.name, category.id]},
+      Category.all.collect {|category| [category.name, category.id]},
       {include_blank: false},
       class: "form-control selectpicker", data: {"live-search": true} %>
   </div>

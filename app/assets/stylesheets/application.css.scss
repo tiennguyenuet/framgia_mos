@@ -26,3 +26,170 @@
 .search {
   margin: 10px 0;
 }
+
+.nav-mos{
+  background-color: #962d75 !important;
+  font-size: 1.5rem;
+}
+
+.nav-framgia{
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+  float: left;
+  width: 100% !important;
+  li{
+    width: auto;
+  }
+  .item-menu{
+    text-align: center;
+    border: solid 2px #fff;
+    a{
+      font-size: 2rem;
+      color: #fff !important;
+    }
+  }
+  .img-home{
+    width: 5%;
+    border: solid 2px #fff;
+  }
+  .li-rdo-ol{
+    width: 20%;
+  }
+  .li-bl-ct{
+    width:20%;
+  }
+  .li-bl-cs{
+    width: 20%;
+  }
+  .li-sk{
+    width: 20%;
+  }
+  .li-gb{
+    width: 15%;
+  }
+}
+
+.new_image>a>img {
+  width: 390px;
+  height: 235px;
+}
+
+.img-responsive{
+  max-width: 100%;
+}
+
+.new_item {
+  padding: 0px;
+}
+
+.article{
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+.col-sm-6 .col-xs-12 {
+  width: 50%;
+  position: relative;
+  min-height: 1px;
+}
+
+.center_column .title_block {
+  margin-left: 0px;
+  padding: 0px 0 0 0px;
+  a{
+    font-size: 18px;
+    color: #202020;
+    line-height: 50px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+}
+
+.box_viewmore {
+  text-align: center;
+  margin-top: 5px;
+  a{
+    font-size: 16px;
+    color: #fff;
+    background: #962d75;
+    border: 1px solid #962d75;
+    padding: 5px 15px;
+    display: -moz-inline-stack;
+    display: inline-block;
+    transition: all .35s ease;
+  }
+}
+
+.new-description {
+  font-size: 14px;
+  font-weight: 400;
+  color: #202020;
+  height: 40px;
+  overflow: hidden;
+}
+.right_block{
+  padding: 0;
+}
+.news_more {
+  background-color: #ededed;
+  display: block;
+}
+
+.news_more .new_item {
+  border-bottom: 1px solid #fff;
+}
+.new_item {
+  padding: 7px;
+}
+
+.new_item .new_content {
+  position: relative;
+  padding-left: 100px;
+}
+
+article{
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+.new_image2 {
+  position: relative;
+  float: left;
+  width: 90px;
+  z-index: 1;
+  .img-responsive {
+    display: block;
+    height: auto;
+  }
+}
+
+.new_content {
+  position: relative;
+  padding-left: 100px;
+}
+
+.new_title {
+  margin: 0;
+  padding: 0;
+  font-size: 15px;
+  color: #202020;
+  line-height: 20px;
+  height: 40px;
+  overflow: hidden;
+  .new_meta {
+    font-size: 12px;
+    line-height: 20px;
+    a{
+      color: #666;
+    }
+  }
+}

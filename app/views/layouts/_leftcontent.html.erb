@@ -1,3 +1,20 @@
-<div id="left_content">
-  <%= yield %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <h1 class="page-header">
+      </h1>
+      <%= yield %>
+      <ul class="pager">
+        <li class="previous">
+          <a href="#">&larr; Older</a>
+        </li>
+        <li class="next">
+          <a href="#">Newer &rarr;</a>
+        </li>
+      </ul>
+    </div>
+    <%= render "layouts/rightcontent" %>
+  </div>
+  <hr>
+  <%= render "layouts/footer" %>
 </div>

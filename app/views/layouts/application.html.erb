@@ -6,26 +6,21 @@
     "data-turbolinks-track": true %>
   <%= javascript_include_tag "application", "data-turbolinks-track": true %>
   <%= csrf_meta_tags %>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
 </head>
 <body>
-  <div id="wrapper">
-    <%= render "layouts/header" %>
-    <%= render "layouts/navbar" %>
-    <div class="clearfix"></div>
-    <div id="main_content">
-        <div class="wrapper_container">
-          <div class="message">
-            <% flash.each do |message_type, message| %>
-              <%= content_tag :div, message, class: "alert alert-#{message_type}" %>
-            <% end %>
-          </div>
-          <%= render "layouts/leftcontent" %>
-          <%= render "layouts/rightcontent" %>
-          <div class="clearfix"></div>
-          <%= render "layouts/footer"%>
-        </div>
-      </div>
+  <%= render "layouts/navbar" %>
+  <div class="clearfix"></div>
+  <div class="message">
+    <% flash.each do |message_type, message| %>
+      <%= content_tag :div, message, class: "alert alert-#{message_type}" %>
+    <% end %>
   </div>
+  <div class="clearfix"></div>
+  <%= render "layouts/leftcontent" %>
 </body>
-
 </html>

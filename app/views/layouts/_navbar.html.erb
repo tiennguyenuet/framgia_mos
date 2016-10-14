@@ -1,58 +1,30 @@
-<div class="wrapper_container">
-  <div id="head" class="clearfix">
-    <div id="logo">
-      <a href="#">
-        <%= image_tag("home-icon.png", size: "80x80") %>
-      </a>
-    </div>
-    <div id="main_menu_bar">
-      <ul id="main_menu">
-        <li>
-          <%= link_to t(".online"), "#" %>
-          <ul class="sub_menu">
-            <li><%= link_to t(".tamsu"), "#" %></li>
-            <li><%= link_to t(".tamhon"), "#" %></li>
-            <li><%= link_to t(".giaitri"), "#" %></li>
-            <li><%= link_to t(".tintuc"), "#" %></li>
-          </ul>
-        </li>
-        <li>
-          <%= link_to t(".cuatoi"), "#" %>
-          <ul class="sub_menu">
-            <li><%= link_to t(".yeu"), "#" %></li>
-            <li><%= link_to t(".cafe"), "#" %></li>
-            <li><%= link_to t(".tho"), "#" %></li>
-            <li><%= link_to t(".truyen"), "#" %></li>
-          </ul>
-        </li>
-        <li>
-          <%= link_to t(".cuocsong"), "#" %>
-          <ul class="sub_menu">
-            <li><%= link_to t(".songdep"), "#" %></li>
-            <li><%= link_to t(".chiemtinh"), "#" %></li>
-            <%= link_to t(".thugian"), "#" %>
-          </ul>
-        </li>
-        <li><%= link_to t(".sukien"), "#" %></li>
-        <li><%= link_to t(".guibai"), "#" %></li>
-      </ul>
-      <ul id="info_user">
-        <% if user_signed_in? %>
-          <li>
-            <%= link_to current_user.name, "#" %>
-            <ul class="sub_menu">
-              <li><%= link_to t(".edit"), edit_user_registration_path %></li>
-              <li><%= link_to t(".logout"), destroy_user_session_path,
-                method: :delete %>
-              </li>
-            </ul>
-          </li>
-        <% else %>
-          <li>
-            <%= link_to t(".login"), new_user_session_path %>
-          </li>
-        <% end %>
-      </ul>
-    </div>
+<nav class="navbar navbar-default navbar-fixed-top nav-mos" role="navigation">
+  <div class="container">
+    <ul class="nav navbar-nav navbar nav-framgia">
+      <li class="item-menu img-home">
+        <div class="navbar-header">
+          <%= link_to root_url do %>
+            <div class="img-responsive">
+              <%= image_tag("home.png", size: "50x50") %>
+            </div>
+          <% end %>
+        </div>
+      </li>
+      <li class="item-menu li-rdo-ol">
+        <%= link_to t(".RADIO_ONLINE"), "#" %>
+      </li>
+      <li class="item-menu li-bl-ct">
+        <%= link_to t(".BLOG_CUA_TOI"),"#" %>
+      </li>
+      <li class="item-menu li-bl-cs">
+        <%= link_to t(".BLOG_CUOC_SONG"), "#" %>
+      </li>
+      <li class="item-menu li-sk">
+        <%= link_to t(".SU_KIEN"),"#" %>
+      </li>
+      <li class="item-menu li-gb">
+        <%= link_to t(".GUI_BAI"), "#" %>
+      </li>
+    </ul>
   </div>
-</div>
+</nav>
