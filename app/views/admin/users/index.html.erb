@@ -1,36 +1,113 @@
 <h2><%= t ".index_user" %></h2>
-<div>
-  <%= search_form_for [:admin, @search], class: "form-inline" do |f| %>
-    <%= f.text_field :name_or_email_cont,
-      placeholder: t(".name_or_email"),
-      class: "form-control width_text_field_search" %>
-    <%= f.select :role_eq, User.roles, {include_blank: t(".role")}, class: "form-control" %>
-    <%= f.submit t(".search"),
-      class: "btn btn-info margin_left_btn_submit" %>
-  <% end %>
+
+<div class="box">
+  <div class="box-body">
+    <div class="search">
+      <%= search_form_for [:admin, @search], class: "form-inline" do |f| %>
+        <%= f.text_field :name_or_email_cont,
+          placeholder: t(".name_or_email"),
+          class: "form-control width_text_field_search" %>
+        <%= f.select :role_eq, User.roles, {include_blank: t(".role")}, class: "form-control" %>
+        <%= f.submit t(".search"),
+          class: "btn btn-info margin_left_btn_submit" %>
+      <% end %>
+    </div>
+    <br/>
+    <br/>
+    <div class="table-responsive">
+      <table class="table table-bordered table-hovered">
+        <thead>
+          <th class="column-index"></th>
+          <th class="column-name-user-width">
+            <%= sort_link @search, :name, t(".name") %>
+          </th>
+          <th class="column-user-name-width">
+            <%= sort_link @search, :user_name, t(".user_name") %>
+          </th>
+          <th class="column-email-width">
+            <%= sort_link @search, :email, t(".email") %>
+          </th>
+          <th class="column-role-status-width"><%= t ".role" %></th>
+          <th class="column-role-status-width"><%= t ".status" %></th>
+          <th class="column-action-width"><%= t ".action" %></th>
+        </thead>
+        <tbody>
+          <% @users.each_with_index do |user, index| %>
+            <tr>
+              <td><%= index_for @users, index, Settings.admin.users.per_page %></td>
+              <td><%= user.name %></td>
+              <td><%= user.user_name %></td>
+              <td><%= user.email %></td>
+              <td>
+                <% if user.admin? %>
+                  <a data-toggle="tooltip" class="tooltipLink"
+                    title="<%= user.role %>">
+                    <i class="fa fa-user-secret"></i>
+                  </a>
+                <% else %>
+                  <a data-toggle="tooltip" class="tooltipLink"
+                    title="<%= user.role %>">
+                    <i class="fa fa-user"></i>
+                  </a>
+                <% end %>
+              </td>
+              <td>
+                <% if user.active? %>
+                  <a data-toggle="tooltip" class="tooltipLink"
+                    title="<%= user.status %>">
+                    <i class="fa fa-check"></i>
+                  </a>
+                <% else %>
+                  <a data-toggle="tooltip" class="tooltipLink"
+                    title="<%= user.status %>">
+                    <i class="fa fa-times-circle-o"></i>
+                  </a>
+                <% end %>
+              </td>
+              <td class="column-min-width">
+                <ul class="menu-action">
+                  <li>
+                    <%= link_to "#", title: t(".tooltip_show") do %>
+                      <span class="glyphicon glyphicon-info-sign"></span>
+                    <% end %>
+                  </li>
+                  <% unless user.admin? %>
+                    <% if user.active? %>
+                      <li>
+                        <%= form_for [:admin, user] do |f| %>
+                          <%= f.hidden_field :status, value: :blocked %>
+                          <%= button_tag(type: "submit", class: "btn-action",
+                            title: t(".tooltip_lock")) do %>
+                            <i class="fa fa-lock"></i>
+                          <% end %>
+                        <% end %>
+                      </li>
+                    <% elsif user.blocked? %>
+                      <li>
+                        <%= form_for [:admin, user] do |f| %>
+                          <%= f.hidden_field :status, value: :active %>
+                          <%= button_tag(type: "submit", class: "btn-action",
+                            title: t(".tooltip_unlock")) do %>
+                            <i class="fa fa-unlock"></i>
+                          <% end %>
+                        <% end %>
+                      </li>
+                    <% end %>
+                    <li>
+                      <%= link_to "#", title: t(".tooltip_delete") do %>
+                        <span class="glyphicon glyphicon-remove"></span>
+                      <% end %>
+                    </li>
+                  <% end %>
+                </ul>
+              </td>
+            </tr>
+
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <%= paginate @users, theme: "twitter-bootstrap-3",
+      pagination_class: "pagination-sm" %>
+  </div>
 </div>
-<br/>
-<br/>
-<div class="table-responsive">
-  <table class="table table-hovered">
-    <thead>
-      <th class="column-name-user-width">
-        <%= sort_link @search, :name, t(".name") %>
-      </th>
-      <th class="column-name-user-width">
-        <%= sort_link @search, :user_name, t(".user_name") %>
-      </th>
-      <th class="column-email-width">
-        <%= sort_link @search, :email, t(".email") %>
-      </th>
-      <th class="column-role-status-width"><%= t ".role" %></th>
-      <th class="column-role-status-width"><%= t ".status" %></th>
-      <th class="column-action-width"><%= t ".action" %></th>
-    </thead>
-    <tbody>
-      <%= render(partial: "user", collection: @users, as: :user) || t(".no_course.display") %>
-    </tbody>
-  </table>
-</div>
-<%= paginate @users, theme: "twitter-bootstrap-3",
-  pagination_class: "pagination-sm" %>

@@ -1,104 +1,114 @@
-<div class="admin-action">
-  <ul class="nav nav-tabs">
-    <li class="<%= 'active' if params[:action] == 'index' %>">
-      <a data-toggle="tab" href="#category-index">
-        <i class="glyphicon glyphicon-th-list"></i>
-        <%= t ".index" %>
-      </a>
-    </li>
-    <li class="<%= 'active' if params[:action] == 'create' %>">
-      <a data-toggle="tab" href="#category-new">
-        <i class="glyphicon glyphicon-plus"></i>
-        <%= t ".new" %>
-      </a>
-    </li>
-  </ul>
-  <div class="clearfix"></div>
-  <div class="tab-content">
-    <div id="category-index"
-      class="tab-pane fade <%= 'in active' if params[:action] == 'index' %>">
-      <h3><%= t ".all_categories" %></h3>
-      <div class="search">
-        <%= search_form_for [:admin, @search], class: "form-inline" do |f| %>
-          <%= f.text_field :name_cont, placeholder: t(".search_name"),
-            class: "form-control" %>
-          <%= f.select :parent_id_eq,
-            @category_roots.pluck(:name, :id),
-            {include_blank: t(".search_parent")}, class: "form-control" %>
-          <%= f.submit t(".submit_search"),
-            class: "btn btn-info" %>
-        <% end %>
-      </div>
-      <%= form_tag admin_destroy_multi_category_path,
-        method: :delete, data: {confirm: t(".are_you_sure")},
-        id: "formDeleteMultipleCategory" do %>
-        <div class="pull-right">
-          <%= submit_tag t(".delete_selected"),
-            class: "btn btn-primary btn-delete-categories" %>
-        </div>
-        <table class="table">
-          <thead>
-            <tr>
-              <th class="index"><%= t ".index" %></th>
-              <th class="name"><%= t ".name" %></th>
-              <th class="number-posts"><%= t ".number_posts" %></th>
-              <th class="parent"><%= t ".parent" %></th>
-              <th class="action"><%= t ".action" %></th>
-              <th>
-                <input type="checkbox" id="selectAll" value="selectAll">
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @categories.each_with_index do |category, index| %>
-              <tr>
-                <td>
-                  <%= index_for @categories,
-                    index, Settings.admin.categories.per_page %>
-                </td>
-                <td><%= link_to category.name, [:admin, category] %></td>
-                <td class="right"><%= category.posts.length %></td>
-                <td><%= category.parent.name if category.parent %></td>
-                <td>
-                  <%= link_to "#" do %>
-                    <span class="glyphicon glyphicon-info-sign"></span>
-                  <% end %>
-                  <%= link_to "#" do %>
-                    <span class="glyphicon glyphicon-pencil"></span>
-                  <% end %>
-                  <%= link_to [:admin, category], method: :delete,
-                    data: {confirm: t(".delete_confirm")} do %>
-                    <span class="glyphicon glyphicon-trash"></span>
-                  <% end %>
-                </td>
-                <td><%= check_box_tag "category_ids[]", category.id,
-                  false, class: "category_ids_" %></td>
-              </tr>
+<div class="row">
+  <div class="col-xs-12">
+    <ul class="nav nav-tabs">
+      <li class="<%= 'active' if params[:action] == 'index' %>">
+        <a data-toggle="tab" href="#category-index">
+          <i class="glyphicon glyphicon-th-list"></i>
+          <%= t ".index" %>
+        </a>
+      </li>
+      <li class="<%= 'active' if params[:action] == 'create' %>">
+        <a data-toggle="tab" href="#category-new">
+          <i class="glyphicon glyphicon-plus"></i>
+          <%= t ".new" %>
+        </a>
+      </li>
+    </ul>
+    <div class="clearfix"></div>
+    <div class="box">
+
+      <div class="box-body">
+        <div class="tab-content">
+          <div id="category-index"
+            class="tab-pane fade <%= 'in active' if params[:action] == 'index' %>">
+            <h3><%= t ".all_categories" %></h3>
+            <div class="search">
+              <%= search_form_for [:admin, @search], class: "form-inline" do |f| %>
+                <%= f.text_field :name_cont, placeholder: t(".search_name"),
+                  class: "form-control" %>
+                <%= f.select :parent_id_eq,
+                  @category_roots.pluck(:name, :id),
+                  {include_blank: t(".search_parent")}, class: "form-control" %>
+                <%= f.submit t(".submit_search"),
+                  class: "btn btn-info" %>
+              <% end %>
+            </div>
+            <%= form_tag admin_destroy_multi_category_path,
+              method: :delete, data: {confirm: t(".are_you_sure")},
+              id: "formDeleteMultipleCategory" do %>
+              <div class="pull-right">
+                <%= submit_tag t(".delete_selected"),
+                  class: "btn btn-primary btn-delete-categories" %>
+              </div>
+              <div class="clearfix"></div>
+              <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                  <thead>
+                    <tr>
+                      <th class="index"><%= t ".index" %></th>
+                      <th class="name"><%= t ".name" %></th>
+                      <th class="number-posts"><%= t ".number_posts" %></th>
+                      <th class="parent"><%= t ".parent" %></th>
+                      <th class="action"><%= t ".action" %></th>
+                      <th>
+                        <input type="checkbox" id="selectAll" value="selectAll">
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% @categories.each_with_index do |category, index| %>
+                      <tr>
+                        <td>
+                          <%= index_for @categories,
+                            index, Settings.admin.categories.per_page %>
+                        </td>
+                        <td><%= link_to category.name, [:admin, category] %></td>
+                        <td class="right"><%= category.posts.length %></td>
+                        <td><%= category.parent.name if category.parent %></td>
+                        <td>
+                          <%= link_to "#" do %>
+                            <span class="glyphicon glyphicon-info-sign"></span>
+                          <% end %>
+                          <%= link_to "#" do %>
+                            <span class="glyphicon glyphicon-pencil"></span>
+                          <% end %>
+                          <%= link_to [:admin, category], method: :delete,
+                            data: {confirm: t(".delete_confirm")} do %>
+                            <span class="glyphicon glyphicon-trash"></span>
+                          <% end %>
+                        </td>
+                        <td><%= check_box_tag "category_ids[]", category.id,
+                          false, class: "category_ids_" %></td>
+                      </tr>
+                    <% end %>
+                  </tbody>
+                </table>
+              </div>
+              <%= paginate @categories, theme: "twitter-bootstrap-3",
+                pagination_class: "pagination-sm" %>
             <% end %>
-          </tbody>
-        </table>
-        <%= paginate @categories, theme: "twitter-bootstrap-3",
-          pagination_class: "pagination-sm" %>
-      <% end %>
-    </div>
-    <div id="category-new"
-      class="tab-pane fade <%= 'in active' if params[:action] == 'create' %>">
-      <h3><%= t ".new_category" %></h3>
-      <div class="category-form">
-        <%= simple_form_for [:admin, @new_category] do |f| %>
-          <%= f.error_notification %>
-          <%= f.input :name, input_html: {class: "form-control"} %>
-          <%= f.input :description, as: :text,
-            input_html: {class: "form-control"} %>
-          <%= f.label :parent_id, t(".category_parent") %>
-          <select class="selectpicker" data-size="9" data-live-search="true"
-            name="category[parent_id]" id="category_parent_id">
-            <option value=""><%= t ".parent" %></option>
-            <%= render "shared/select_category", categories: @nested_categories %>
-          </select>
-          <br>
-          <%= f.button :submit, class: "btn btn-primary" %>
-        <% end %>
+          </div>
+          <div id="category-new"
+            class="tab-pane fade <%= 'in active' if params[:action] == 'create' %>">
+            <h3><%= t ".new_category" %></h3>
+            <div class="category-form">
+              <%= simple_form_for [:admin, @new_category] do |f| %>
+                <%= f.error_notification %>
+                <%= f.input :name, input_html: {class: "form-control"} %>
+                <%= f.input :description, as: :text,
+                  input_html: {class: "form-control"} %>
+                <%= f.label :parent_id, t(".category_parent") %>
+                <select class="selectpicker" data-size="9" data-live-search="true"
+                  name="category[parent_id]" id="category_parent_id">
+                  <option value=""><%= t ".parent" %></option>
+                  <%= render "shared/select_category", categories: @nested_categories %>
+                </select>
+                <br>
+                <%= f.button :submit, class: "btn btn-primary" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

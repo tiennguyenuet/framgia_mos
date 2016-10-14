@@ -2,18 +2,18 @@
   <%= render "shared/error_messages", object: f.object %>
   <div class="fields">
     <%= f.label :post_type %>
-    <%= f.select :post_type,
-      Post.post_types.keys.to_a,
+    <%= f.select :post_type, Post.post_types.keys.to_a,
       {include_blank: false},
-      class: "form-control selectpicker", data: {"live-search": true} %>
+      class: "selectpicker", data: {"live-search": true} %>
   </div>
 
   <div class="field">
     <%= f.label :category_id %>
-    <%= f.select :category_id,
-      @categories.collect {|category| [category.name, category.id]},
-      {include_blank: false},
-      class: "form-control selectpicker", data: {"live-search": true} %>
+    <select class="selectpicker" data-size="9" data-live-search="true"
+      name="post[category_id]" id="post_category_id">
+      <option value=""><%= t ".category" %></option>
+      <%= render "shared/select_category", categories: @nested_categories %>
+    </select>
   </div>
 
   <div class="field">
@@ -29,11 +29,11 @@
   </div>
 
   <div class="field">
-    <%= f.input :image, as: :file, input_html: {class: "form-control"} %>
+    <%= f.input :image, as: :file %>
   </div>
 
   <div class="field">
-    <%= f.input :audio, as: :file, input_html: {class: "form-control"} %>
+    <%= f.input :audio, as: :file %>
   </div>
 
   <div class="field">

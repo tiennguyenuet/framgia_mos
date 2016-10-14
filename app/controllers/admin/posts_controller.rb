@@ -25,7 +25,6 @@ class Admin::PostsController < Admin::BaseController
       @posts = @search.result.order(created_at: :desc).page(params[:page])
         .per Settings.admin.posts.per_page
       load_all_categories
-      flash[:danger] = t ".fail"
       render :index
     end
   end
@@ -38,7 +37,7 @@ class Admin::PostsController < Admin::BaseController
       flash[:success] = t ".success"
       redirect_to admin_posts_path
     else
-      flash[:danger] = t ".fail"
+      load_all_categories
       render :edit
     end
   end
