@@ -30,5 +30,5 @@ en:
         success: "Deleted confession successfully!"
         error: "Delete error!"
       show:
-        complete_comment: "Comment"
+        complete_comment: "Accept"
         accept: "Accept"

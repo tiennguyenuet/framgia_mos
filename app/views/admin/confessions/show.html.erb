@@ -1,28 +1,43 @@
-<div class="admin-action">
-  <ul class="nav nav-tabs">
-    <li class="<%= 'active' if params[:action] == 'show' %>">
-      <a data-toggle="tab" href="#confession-show"><%= t ".show" %></a>
-    </li>
-  </ul>
-  <div class="clearfix"></div>
-  <div class="tab-content">
-    <div id="confession-show"
-      class="tab-pane fade <%= 'in active' if params[:action] == 'show' %>">
-      <br>
-      <div class="confession-form">
-        <%= simple_form_for [:admin, @confession] do |f| %>
-          <%= f.error_notification %>
-          <%= f.input :content, disabled: true, as: :text,
-            input_html: {class: "form-control"} %>
+<div class="row">
+  <div class="col-xs-12">
+    <ul class="nav nav-tabs">
+      <li class="<%= 'active' if params[:action] == 'show' %>">
+        <a data-toggle="tab" href="#confession-show">
+          <i class="glyphicon glyphicon-info-sign"></i>
+          <%= t ".show" %>
+        </a>
+      </li>
+    </ul>
+    <div class="clearfix"></div>
+
+    <div class="box">
+      <div class="box-body">
+        <div class="tab-content">
+          <div id="confession-show"
+            class="tab-pane fade <%= 'in active' if params[:action] == 'show' %>">
             <br>
-          <%= f.input :admin_comment, label: t(".admin_comment"),
-            as: :text, input_html: {class: "form-control"} %>
-            <br>
-          <%= f.label :status %><br/>
-          <%= f.select :status, Confession.statuses.keys.to_a,
-            input_html: {class: "form-control"} %> <br/> <br/>
-          <%= f.submit t(".complete_comment"), class: "btn btn-primary" %>
-        <% end %>
+            <% if @confession.pending? %>
+              <div class="confession-form">
+                <%= simple_form_for [:admin, @confession] do |f| %>
+                  <%= f.error_notification %>
+                  <%= f.input :content, disabled: true, as: :text,
+                    input_html: {class: "form-control"} %>
+                    <br>
+                  <%= f.input :admin_comment, label: t(".admin_comment"),
+                    as: :text, input_html: {class: "form-control"} %>
+                    <br>
+                  <%= f.hidden_field :status, value: :accepted %>
+                  <%= f.submit t(".complete_comment"), class: "btn btn-primary" %>
+                <% end %>
+              </div>
+            <% elsif @confession.accepted? %>
+              <small>Comment</small>
+              <p><%= @confession.admin_comment %></p>
+              <hr>
+              <p><%= @confession.content %></p>
+            <% end %>
+          </div>
+        </div>
       </div>
     </div>
   </div>

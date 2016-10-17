@@ -40,6 +40,8 @@ en:
         are_you_sure: "Are you sure?"
       form:
         save: "Update"
+      edit:
+        edit_post: "Edit post"
 
 
 
