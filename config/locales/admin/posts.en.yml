@@ -1,5 +1,9 @@
 en:
   admin:
+    accept_post:
+      update:
+        accepted: "Post has been released successfully"
+        rejected: "Post has been rejected successfully"
     posts:
       index:
         all_posts: "All posts"
@@ -42,6 +46,14 @@ en:
         save: "Update"
       edit:
         edit_post: "Edit post"
+      show:
+        save: "Save"
+        accepted_by: "Accepted by %{name} at %{time}"
+        rejected_by: "Rejected by %{name} at %{time}"
+        show: "Show"
+        edit: "Edit"
+        accept: "Accept"
+        reject: "Reject"
 
 
 

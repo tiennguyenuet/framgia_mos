@@ -1,0 +1,106 @@
+<ul class="nav nav-tabs">
+  <li class="<%= 'active' if params[:action] == 'show' %>">
+    <a data-toggle="tab" href="#post-show">
+      <i class="glyphicon glyphicon-info-sign"></i>
+      <%= t ".show" %>
+    </a>
+  </li>
+  <li class="<%= 'active' if params[:action] == 'update' %>">
+    <a data-toggle="tab" href="#post-edit">
+      <i class="glyphicon glyphicon-pencil"></i>
+      <%= t ".edit" %>
+    </a>
+  </li>
+</ul>
+
+<div class="clearfix"></div>
+<div class="box">
+
+  <div class="box-body">
+
+    <div class="tab-content">
+      <div id="post-show"
+        class="tab-pane fade <%= 'in active' if params[:action] == 'show' %>">
+        <h3><%= @post.title %></h3>
+        <div class="col-md-8 col-xs-12">
+          <%= @post.content.html_safe %>
+        </div>
+      </div>
+      <div id="post-edit"
+        class="tab-pane fade <%= 'in active' if params[:action] == 'update' %>">
+        <h3><%= t ".edit" %></h3>
+        <div class="post-form">
+          <%= simple_form_for [:admin, @post], html: {multipart: true} do |f| %>
+            <%= render "shared/error_messages", object: f.object %>
+            <div class="fields">
+              <%= f.label :post_type %>
+              <%= f.select :post_type, Post.post_types.keys.to_a,
+                {include_blank: false},
+                class: "selectpicker", data: {"live-search": true} %>
+            </div>
+
+            <div class="field">
+              <%= f.label :category_id %>
+              <select class="selectpicker" data-size="9" data-live-search="true"
+                name="post[category_id]" id="post_category_id">
+                <option value=""><%= t ".category" %></option>
+                <%= render "shared/select_category", categories: @nested_categories %>
+              </select>
+            </div>
+
+            <div class="field">
+              <%= f.input :title, input_html: {class: "form-control"} %>
+            </div>
+
+            <div class="field">
+              <%= f.input :description, as: :text, input_html: {class: "form-control"} %>
+            </div>
+
+            <div class="field">
+              <%= f.input :content, as: :ckeditor, input_html: {class: "ckeditor-field"} %>
+            </div>
+
+            <div class="field">
+              <%= f.input :image, as: :file %>
+            </div>
+
+            <div class="field">
+              <%= f.input :audio, as: :file %>
+            </div>
+
+            <div class="field">
+              <%= f.label :status %><br/>
+              <%= f.select :status, Post.statuses.keys.to_a %>
+            </div>
+
+            <div class="clearfix"></div>
+            <div class="field">
+              <%= f.submit t(".save"), class: "btn btn-primary" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<% case @post.status %>
+<% when "waiting" %>
+  <%= form_tag(controller: "accept_post", action: "update") do %>
+    <%= hidden_field_tag :id, @post.id %>
+    <%= hidden_field_tag :accepted_by, current_admin_user.name %>
+    <div class="form-inline">
+      <%= submit_tag t(".accept"), class: "btn btn-primary" %>
+      <%= submit_tag t(".reject"), class: "btn btn-default" %>
+    </div>
+  <% end %>
+<% when "accepted" %>
+  <span>
+    <%= t(".accepted_by", name: @post.accepted_by,
+      time: @post.updated_at.strftime(Settings.time_format.normal)) %>
+  </span>
+<% when "rejected" %>
+  <span>
+    <%= t(".rejected_by", name: @post.accepted_by,
+      time: @post.updated_at.strftime(Settings.time_format.normal)) %>
+  </span>
+<% end %>

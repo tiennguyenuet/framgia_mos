@@ -12,10 +12,11 @@ Rails.application.routes.draw do
     delete "destroy_multi_category", to: "categories#destroy"
     delete "destroy_multi_advertisment", to: "advertisments#destroy"
     delete "destroy_multi_confession", to: "confessions#destroy"
+    post "accept_post", to: "accept_post#update"
     resources :statistics, only: :index
     resources :categories
     resources :users, only: [:index, :update]
-    resources :posts
+    resources :posts, except: :new
     resources :advertisments
     resources :confessions
     devise_for :users, controllers: {
