@@ -11,14 +11,14 @@
  * -------------------------
  */
 html,
-body {
+#body-admin {
   min-height: 100%;
 }
 .layout-boxed html,
 .layout-boxed body {
   height: 100%;
 }
-body {
+#body-admin {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;

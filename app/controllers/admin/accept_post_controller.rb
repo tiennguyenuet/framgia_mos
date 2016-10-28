@@ -5,6 +5,7 @@ class Admin::AcceptPostController < Admin::BaseController
     case params[:commit]
     when Settings.admin.posts.accept
       if post.update_attributes status: :accepted, accepted_by: params[:accepted_by]
+        NotificationBroadcastJob.perform_now post
         flash[:success] = t ".accepted"
       end
     when Settings.admin.posts.reject
