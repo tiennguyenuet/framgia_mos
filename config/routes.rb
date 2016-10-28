@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   root "static_pages#home"
   mount Ckeditor::Engine => "/ckeditor"
+  mount ActionCable.server => "/cable"
 
   resources :posts, only: :show
 

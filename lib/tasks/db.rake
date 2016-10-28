@@ -73,7 +73,7 @@ namespace :db do
         )
       end
 
-      puts "Creating peding posts"
+      puts "Creating pending posts"
       9.times do |n|
         Post.create(
           post_type: :normal,
@@ -83,6 +83,7 @@ namespace :db do
           status: :waiting,
           category_id: Category.order("rand()").first.id,
           image: File.open(File.join(Rails.root, "app/assets/images/posts/image1.jpg")),
+          user_id: 1,
           created_at: (Time.now - rand(Time.now.month).month)
         )
       end
