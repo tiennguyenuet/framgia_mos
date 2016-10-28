@@ -10,6 +10,7 @@ class CreatePosts < ActiveRecord::Migration
       t.integer :category_id
       t.integer :status, default: 0
       t.integer :post_type
+      t.string :accepted_by
       t.timestamps null: false
     end
   end

@@ -1,6 +1,6 @@
 class Admin::PostsController < Admin::BaseController
   load_and_authorize_resource
-  before_action :load_all_categories, only: [:index, :edit]
+  before_action :load_all_categories, only: [:index, :show]
 
   def index
     @search = Post.all.ransack params[:q]
@@ -29,16 +29,13 @@ class Admin::PostsController < Admin::BaseController
     end
   end
 
-  def edit
-  end
-
   def update
     if @post.update_attributes post_params
       flash[:success] = t ".success"
-      redirect_to admin_posts_path
+      redirect_to :back
     else
       load_all_categories
-      render :edit
+      render :show
     end
   end
 
