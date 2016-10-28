@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: {omniauth_callbacks: "users/callbacks"}
+  devise_for :users, controllers: {omniauth_callbacks: "users/callbacks"},
+    path: '', path_names: {sign_in: "login", sign_out: "logout", sign_up: "register"}
 
   root "static_pages#home"
   mount Ckeditor::Engine => "/ckeditor"
@@ -7,7 +8,7 @@ Rails.application.routes.draw do
   resources :posts, only: :show
 
   namespace :admin do
-    root "statistics#index"
+    root "statistics#index", as: :root
     delete "destroy_multi_post", to: "posts#destroy"
     delete "destroy_multi_category", to: "categories#destroy"
     delete "destroy_multi_advertisment", to: "advertisments#destroy"
@@ -19,8 +20,8 @@ Rails.application.routes.draw do
     resources :posts, except: :new
     resources :advertisments
     resources :confessions
-    devise_for :users, controllers: {
-      sessions: "admin/sessions"
-    }
+    devise_for :users, controllers: {sessions: "admin/sessions"},
+      path: '', path_names: {sign_in: "login", sign_out: "logout",
+      sign_up: "register"}
   end
 end

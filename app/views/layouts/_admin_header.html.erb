@@ -24,7 +24,8 @@
                   <a href="#" class="btn btn-default btn-flat"><%= t ".profile" %></a>
                 </div>
                 <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat"><%= t ".sign_out" %></a>
+                  <%= link_to t(".sign_out"), destroy_admin_user_session_path,
+                    method: :delete, class: "btn btn-default btn-flat" %>
                 </div>
               </li>
             </ul>
