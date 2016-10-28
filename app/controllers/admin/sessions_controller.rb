@@ -6,10 +6,20 @@ class Admin::SessionsController < Devise::SessionsController
   end
 
   def create
-   super
+    user = User.find_by email: params[:admin_user][:email]
+    (user && user.user?) ? redirect_to(root_url) : super
   end
 
   def destroy
    super
+  end
+
+  private
+  def after_sign_in_path_for(resource)
+    admin_root_path
+  end
+
+  def after_sign_out_path_for(resource)
+    admin_root_path
   end
 end
