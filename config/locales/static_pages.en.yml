@@ -1,22 +1,9 @@
 en:
+  static_pages:
+    home:
+      newest: "Newest"
   layouts:
-    navbar:
-      online: "RADIO ONLINE"
-      cuatoi: "BLOG CUA TOI"
-      cuocsong: "BLOG CUOC SONG"
-      sukien: "SU KIEN"
-      guibai: "GUI BAI"
-      tamsu: "RADIO TAM SU"
-      tamhon: "RADIO TAM HON"
-      giaitri: "RADIO GIAI TRI"
-      tintuc: "RADIO TIN TUC"
-      yeu: "YEU 24/7"
-      cafe: "CAFE BLOG"
-      tho: "THO BLOG"
-      truyen: "TRUYEN ONLINE"
-      songdep: "SONG DEP"
-      chiemtinh: "CHIEM TINH"
-      thugian: "THU GIAN"
-      login: "Log in"
-      logout: "Log out"
-      edit: "Edit"
+      hotest: "Hotest"
+      sign_up: "Sign up"
+      log_in: "Log in"
+      home: "Home"

@@ -8,25 +8,10 @@
     "data-turbolinks-track": true %>
   <%= javascript_include_tag "application", "data-turbolinks-track": true %>
 </head>
-<body id="body-user">
-  <div id="wrapper">
-    <%= render "layouts/header" %>
+  <body id="body-user">
     <%= render "layouts/navbar" %>
-    <div class="clearfix"></div>
-    <div id="main_content">
-        <div class="wrapper_container">
-          <div class="message">
-            <% flash.each do |message_type, message| %>
-              <%= content_tag :div, message, class: "alert alert-#{message_type}" %>
-            <% end %>
-          </div>
-          <%= render "layouts/leftcontent" %>
-          <%= render "layouts/rightcontent" %>
-          <div class="clearfix"></div>
-          <%= render "layouts/footer"%>
-        </div>
-      </div>
-  </div>
-</body>
-
+    <div  id="wrapper" class="container">
+      <%= yield %>
+    </div>
+  </body>
 </html>
