@@ -18,3 +18,9 @@ admin:
 time_format:
   normal: "%H:%M %d-%m-%Y"
 per_page: 10
+static_pages:
+  number_hot_posts: 5
+  number_category_posts: 5
+  truncate_post_description: 100
+  truncate_post_title: 70
+  truncate_first_post_description: 300

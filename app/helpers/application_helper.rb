@@ -7,4 +7,8 @@ module ApplicationHelper
   def index_for object, index, per_page
     (object.current_page - 1)* + per_page + index + 1
   end
+
+  def vertical_display_post index
+    (index / 2) % 2 == 0
+  end
 end

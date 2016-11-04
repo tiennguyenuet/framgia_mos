@@ -1,0 +1,66 @@
+<div class="row">
+  <div id="wrapper-body">
+    <div id="slide"></div>
+    <div id="main-app" class="col-md-8 col-xs-12">
+      <div class="category-name">
+        <span id="newest">
+          <%= t ".newest" %>
+        </span>
+      </div>
+      <div id="first-post" >
+        <%= link_to post_path(@first_post) do %>
+          <%= image_tag @first_post.image %>
+        <% end %>
+        <div class="description">
+          <h3 id="first-post-title"><%= link_to @first_post.title, @first_post %></h3>
+          <span><%= truncate @first_post.description,
+            length: Settings.static_pages.truncate_first_post_description %></span>
+        </div>
+      </div>
+      <% @category_roots.each_with_index do |category, index| %>
+        <% if category.posts.any? %>
+          <div class="posts-category">
+            <% if vertical_display_post(index) %>
+              <div class="left">
+                <div class="category-name">
+                  <span id="category-name">
+                    <%= category.name.upcase %>
+                  </span>
+                </div>
+                <%= link_to category.posts.last do  %>
+                  <%= image_tag category.posts.last.image, class: "img-responsive" %>
+                <% end %>
+                <h4><%= link_to category.posts.last.title, category.posts.last %></h4>
+                <span><%= truncate category.posts.last.description,
+                  length: Settings.static_pages.truncate_post_description %></span>
+                <%= render "layouts/list_posts", posts: category.posts.reverse
+                 .take(Settings.static_pages.number_category_posts) %>
+              </div>
+            <% else %>
+              <div class="clearfix"></div>
+              <div class="category-name">
+                <span id="category-name">
+                  <%= category.name %>
+                </span>
+              </div>
+              <div class="left">
+                <%= link_to category.posts.last do %>
+                  <%= image_tag category.posts.last.image, class: "img-responsive" %>
+                <% end %>
+                <h4><%= link_to category.posts.last.title, category.posts.last %></h4>
+                <span><%= truncate category.posts.last.description,
+                  length: Settings.static_pages.truncate_post_description %></span>
+              </div>
+              <div class="left">
+                <%= render "layouts/list_posts", posts: category.posts.reverse
+                  .take(Settings.static_pages.number_category_posts) %>
+              </div>
+              <div class="clearfix"></div>
+            <% end %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+    <%= render "layouts/left_content" %>
+  </div>
+</div>
