@@ -3,7 +3,10 @@ en:
     home:
       newest: "Newest"
   layouts:
-      hotest: "Hotest"
-      sign_up: "Sign up"
-      log_in: "Log in"
-      home: "Home"
+    hotest: "Hotest"
+    sign_up: "Sign up"
+    log_in: "Log in"
+    home: "Home"
+    edit_profile: "Edit profile"
+    log_out: "Log out"
+    create_post: "Create Post"

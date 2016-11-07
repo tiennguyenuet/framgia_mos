@@ -3,3 +3,8 @@ en:
     show:
       author: "Author"
       not_support: "Your browser does not support HTML5 audio playback"
+    new:
+      send: "Send"
+      send_blog_post: "Send blog post"
+    create:
+      success: "Post was created success, waiting for admin accept"
