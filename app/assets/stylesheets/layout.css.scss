@@ -7,6 +7,19 @@
     color: #fff;
   }
 
+  .dropdown {
+    .dropdown-toggle {
+      .user-image {
+        float: left;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        margin-right: 10px;
+        margin-top: -2px;
+      }
+    }
+  }
+
   .dropdown-menu {
     background-color: #1f83ff;
   }
@@ -15,13 +28,25 @@
     color: red;
   }
 
-  .nav {
+  #category-nav {
     li {
       &:hover {
         background-color: #230090;
       }
       a {
         text-transform: uppercase;
+      }
+    }
+
+    .open {
+      background-color: #230090;
+    }
+  }
+
+  #nav-user {
+    li {
+      &:hover {
+        background-color: #230090;
       }
     }
 
