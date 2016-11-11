@@ -1,15 +1,19 @@
-<% posts.each do |post| %>
-  <div class="list-post-item">
-    <%= link_to post, class: "image" do %>
-      <%= image_tag post.image, class: "pull-left img-responsive" %>
-    <% end %>
-    <div class="post-title">
-      <%= link_to truncate(post.title,
-        length: Settings.static_pages.truncate_post_title), post %>
-      <div class="time">
-        <%= post.updated_at.strftime Settings.time_format.normal %>
+<% if posts.blank?%>
+  <p><%= t "static_pages.home.no_post" %></p>
+<% else %>
+  <% posts.each do |post| %>
+    <div class="list-post-item">
+      <%= link_to post, class: "image" do %>
+        <%= image_tag post.image, class: "pull-left img-responsive" %>
+      <% end %>
+      <div class="post-title">
+        <%= link_to truncate(post.title,
+          length: Settings.static_pages.truncate_post_title), post %>
+        <div class="time">
+          <%= post.updated_at.strftime Settings.time_format.normal %>
+        </div>
       </div>
+      <div class="clearfix"></div>
     </div>
-    <div class="clearfix"></div>
-  </div>
+  <% end %>
 <% end %>
