@@ -55,6 +55,9 @@
             </a>
             <ul class="dropdown-menu">
               <li>
+                <%= link_to t("layouts.profile"), current_user %>
+              </li>
+              <li>
                 <%= link_to t("layouts.edit_profile"), edit_user_registration_path %>
               </li>
               <li>

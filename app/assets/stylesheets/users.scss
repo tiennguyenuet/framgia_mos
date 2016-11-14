@@ -1,0 +1,27 @@
+.user-profile {
+  background-color: #fff;
+  padding: 3%;
+
+  .infomation {
+    .avatar-profile {
+      width: 200px;
+      height: 200px;
+    }
+  }
+
+  .user-posts {
+    table {
+      #index {
+        width: 10%;
+      }
+
+      #title {
+        width: 80%;
+      }
+
+      #action {
+        width: 10%;
+      }
+    }
+  }
+}

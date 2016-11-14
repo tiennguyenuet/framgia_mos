@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   mount Ckeditor::Engine => "/ckeditor"
   mount ActionCable.server => "/cable"
 
-  resources :posts, only: [:show, :new, :create]
+  resources :posts
+  resources :users, only: :show
 
   namespace :admin do
     root "statistics#index", as: :root

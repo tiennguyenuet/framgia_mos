@@ -22,6 +22,8 @@
 //= require_tree .
 
 $(document).on('turbolinks:load', function() {
+
+  $('.fb-comments').attr('data-href', window.location.href)
   $('.sidebar-toggle').click(function() {
     $('#body-admin').toggleClass('sidebar-collapse')
   });

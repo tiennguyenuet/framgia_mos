@@ -21,7 +21,7 @@
 
           <% if @post.audio? %>
             <div class="audio-of-post">
-                <audio src="<%= @post.audio %>" autoplay controls loop>
+                <audio src="<%= @post.audio %>" controls>
                   <p><%= t ".not_support" %></p>
                 </audio>
             </div>
@@ -37,7 +37,7 @@
 
           <div class="comment">
             <div id="fb-root"></div>
-            <div class="fb-comments" data-href="http://localhost:3000/posts/1"
+            <div class="fb-comments" data-href=""
               data-width="100%" data-numposts="5"></div>
           </div>
         </div>
