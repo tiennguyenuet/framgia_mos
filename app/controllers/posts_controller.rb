@@ -18,6 +18,15 @@ class PostsController < ApplicationController
   def show
   end
 
+  def destroy
+    if @post.destroy
+      flash[:success] = t ".success"
+    else
+      flash[:danger] = t ".fail"
+    end
+    redirect_to current_user
+  end
+
   private
   def load_all_categories
     @nested_categories = Category.all_categories @category_roots

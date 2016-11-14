@@ -1,0 +1,48 @@
+<div class="user-profile">
+  <div class="row">
+    <div class="col-md-3 col-xs-12 infomation">
+      <%= link_to @user, class: "pull-left" do %>
+        <%= image_tag @user.avatar, class: "avatar-profile" %>
+      <% end %>
+    </div>
+
+    <div class="con-md-4 con-xs-12">
+      <p><%= @user.email %></p>
+    </div>
+
+    <div class="col-md-8 col-xs-12">
+
+    </div>
+  </div>
+  <div class="user-posts">
+    <h3><%= t ".posts" %></h3>
+    <table class="table table-bordered">
+      <thead>
+        <th id="index"><%= t ".index" %></th>
+        <th id="title" ><%= t ".title" %></th>
+        <% if @user == current_user %>
+          <th id="action"><%= t ".action" %></th>
+        <% end %>
+      </thead>
+      <tbody>
+        <% @posts.each_with_index do |post, index|%>
+          <tr>
+            <td><%= index_for(@posts, index, Settings.users.posts.per_page) %></td>
+            <td><%= link_to post.title, post %></td>
+            <% if @user == current_user %>
+              <td>
+                <%= link_to edit_post_path(post) do %>
+                  <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                <% end %>
+                <%= link_to post, method: :delete, data: {confirm: t(".confirm")} do %>
+                  <i class="fa fa-trash-o" aria-hidden="true"></i>
+                <% end %>
+              </td>
+            <% end %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <%= paginate @posts %>
+  </div>
+</div>

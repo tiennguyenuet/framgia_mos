@@ -1,0 +1,8 @@
+en:
+  users:
+    show:
+      posts: "Posts"
+      index: "Index"
+      title: "Title"
+      action: "Action"
+      confirm: "Are you sure?"
