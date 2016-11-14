@@ -18,6 +18,10 @@ class Category < ActiveRecord::Base
     end
   end
 
+  def all_posts
+    Post.accepted.where category_id: ((self.leaves.to_a << self).map &:id)
+  end
+
   private
   def not_delete
     if self.children_count > 0 || self.posts.any?

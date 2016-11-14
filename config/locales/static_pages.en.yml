@@ -2,6 +2,8 @@ en:
   static_pages:
     home:
       newest: "Newest"
+      no_post: "No post"
+      no_data: "No data"
   layouts:
     hotest: "Hotest"
     sign_up: "Sign up"
