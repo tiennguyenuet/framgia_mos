@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   load_and_authorize_resource
-  before_action :load_all_categories, only: :new
+  before_action :load_all_categories, only: [:new, :edit]
 
   def new
   end
@@ -8,7 +8,7 @@ class PostsController < ApplicationController
   def create
     if @post.save
       flash[:success] = t ".success"
-      redirect_to root_url
+      redirect_to current_user
     else
       load_all_categories
       render :new
@@ -16,6 +16,21 @@ class PostsController < ApplicationController
   end
 
   def show
+    redirect_to root_url unless @post.accepted?
+  end
+
+  def edit
+    redirect_to root_url unless @post.waiting?
+  end
+
+  def update
+    if @post.update_attributes post_params
+      flash[:success] = t ".success"
+      redirect_to current_user
+    else
+      load_all_categories
+      render :edit
+    end
   end
 
   def destroy

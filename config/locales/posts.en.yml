@@ -6,8 +6,13 @@ en:
     new:
       send: "Send"
       send_blog_post: "Send blog post"
+    edit:
+      edit: "Edit your post"
+      update: "Update"
     create:
       success: "Post was created success, waiting for admin accept"
     destroy:
       success: "Deleted successfully"
       fail: "Deleted fail"
+    update:
+      success: "Updated successfully"
