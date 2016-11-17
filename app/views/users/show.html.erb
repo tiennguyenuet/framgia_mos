@@ -31,11 +31,14 @@
             <td><%= link_to post.title, post %></td>
             <% if @user == current_user %>
               <td>
-                <%= link_to edit_post_path(post) do %>
-                  <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                <% end %>
                 <%= link_to post, method: :delete, data: {confirm: t(".confirm")} do %>
                   <i class="fa fa-trash-o" aria-hidden="true"></i>
+                <% end %>
+
+                <% if post.waiting? %>
+                  <%= link_to edit_post_path(post) do %>
+                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                  <% end %>
                 <% end %>
               </td>
             <% end %>
