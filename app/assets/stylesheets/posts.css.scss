@@ -23,6 +23,23 @@
     }
   }
 
+  .evaluate {
+    .btn-like {
+      border-radius: 0;
+      border: 1px solid black;
+
+      &:hover {
+        background-color: #4343ff;
+        color: #fff !important;
+      }
+    }
+
+    .liked {
+      background-color: blue;
+      color: #fff !important;
+    }
+  }
+
   audio
   {
     width: 100%;

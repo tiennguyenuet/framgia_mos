@@ -20,6 +20,13 @@ class User < ActiveRecord::Base
   enum role: [:admin, :user]
   enum status: [:active, :blocked]
 
+  def like? object
+    case object.class
+    when Post
+      object.likes.where(user_id: self.id).any?
+    end
+  end
+
   class << self
     def from_omniauth auth
       where(provider: auth.provider, uid: auth.uid).first_or_create do |user|

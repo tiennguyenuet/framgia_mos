@@ -2,6 +2,7 @@ class Post < ActiveRecord::Base
   belongs_to :user
   belongs_to :category
   has_many :comments, dependent: :destroy
+  has_many :likes, as: :likeable
 
   enum status: [:admin_create, :waiting, :accepted, :rejected]
   enum post_type: [:normal, :audio]
