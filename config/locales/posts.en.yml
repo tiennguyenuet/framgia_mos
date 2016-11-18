@@ -3,6 +3,8 @@ en:
     show:
       author: "Author"
       not_support: "Your browser does not support HTML5 audio playback"
+      like: "Like"
+      liked: "Liked"
     new:
       send: "Send"
       send_blog_post: "Send blog post"

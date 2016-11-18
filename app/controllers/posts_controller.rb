@@ -17,6 +17,7 @@ class PostsController < ApplicationController
 
   def show
     redirect_to root_url unless @post.accepted?
+    @total_like = @post.likes.size
   end
 
   def edit

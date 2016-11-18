@@ -1,7 +1,7 @@
 <div class="row">
   <div id="wrapper-body">
     <div id="main-app" class="col-md-8 col-xs-12">
-      <div class="show-post">
+      <div class="show-post" data-post="<%= @post.id %>">
         <div class="post-body">
           <span class="title">
             <%= @post.title %>
@@ -34,6 +34,22 @@
           <div class="content">
             <%= @post.content.html_safe %>
           </div>
+
+          <% if user_signed_in? %>
+            <div class="evaluate">
+              <% if current_user.like? @post %>
+                <a href="" type="button" class="btn btn-xs btn-like liked">
+                  <i class="glyphicon glyphicon-thumbs-up"></i>
+                  <span id="post_likes"><%= t ".liked" %> (<%= @total_like %>)</span>
+                </a>
+              <% elsif %>
+                <a href="" type="button" class="btn btn-xs btn-like">
+                  <i class="glyphicon glyphicon-thumbs-up"></i>
+                  <span id="post_likes"><%= t".like" %> (<%= @total_like %>)</span>
+                </a>
+              <% end %>
+            </div>
+          <% end %>
 
           <div class="comment">
             <div id="fb-root"></div>
