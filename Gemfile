@@ -31,6 +31,7 @@ gem "bootstrap-kaminari-views"
 gem "jquery-ui-rails"
 gem "bootstrap-select-rails"
 gem "awesome_nested_set"
+gem "social-share-button"
 
 group :development, :test do
   gem "byebug", platform: :mri

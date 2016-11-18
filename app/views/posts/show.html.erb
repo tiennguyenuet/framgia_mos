@@ -6,6 +6,8 @@
           <span class="title">
             <%= @post.title %>
           </span>
+          <%= social_share_button_tag @post.title, url: "lvh.me:3000/posts/#{@post.id}",
+            image: "lvh.me:3000#{@post.image.url}" %>
           <div class="info">
             <div class="author">
               <i class="fa fa-user"></i>
@@ -50,7 +52,10 @@
               <% end %>
             </div>
           <% end %>
-
+          <div class="share">
+            <%= social_share_button_tag @post.title, url: "lvh.me:3000/posts/#{@post.id}",
+              image: "lvh.me:3000#{@post.image.url}" %>
+          </div>
           <div class="comment">
             <div id="fb-root"></div>
             <div class="fb-comments" data-href="<%= request.original_url %>"
