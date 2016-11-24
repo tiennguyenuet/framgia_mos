@@ -83,6 +83,10 @@
         background-color: #ff00eb;
         text-transform: uppercase;
       }
+
+      #recent {
+        background-color: gray;
+      }
     }
 
     a {
@@ -163,7 +167,10 @@
       border-left: 4px solid #d2d6de;
       background-color: #fff;
       padding: 15px;
-      #hot-news {
+      .list-category-posts {
+        margin-bottom: 20px;
+      }
+      #list-posts {
         .list-post-item {
           min-height: 76px;
           margin-top: 5px;

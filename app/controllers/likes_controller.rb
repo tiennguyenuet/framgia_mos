@@ -8,13 +8,13 @@ class LikesController < ApplicationController
       if like
         like.destroy
         respond_to do |format|
-          format.json {render json: {size: post.likes.size, type: :unlike}}
+          format.json {render json: {size: post.likes_count-1, type: :unlike}}
           format.html {redirect_to post}
         end
       else
         post.likes.create user_id: current_user.id
         respond_to do |format|
-          format.json {render json: {size: post.likes.size, type: :like}}
+          format.json {render json: {size: post.likes_count, type: :like}}
           format.html {redirect_to post}
         end
       end

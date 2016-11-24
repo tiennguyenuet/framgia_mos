@@ -11,6 +11,7 @@ class CreatePosts < ActiveRecord::Migration
       t.integer :status, default: 0
       t.integer :post_type
       t.string :accepted_by
+      t.integer :likes_count, default: 0
       t.timestamps null: false
     end
   end

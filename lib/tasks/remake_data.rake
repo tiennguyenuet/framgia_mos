@@ -751,6 +751,14 @@ namespace :db do
         Confession.create content: Faker::Hipster.paragraph, status: :pending
       end
 
+      puts "Creating post like"
+
+      (1..15).each do |post_id|
+        rand(20).times do |like|
+          Post.find(post_id).likes.create user_id: rand(14)
+        end
+      end
+
     else
       puts "Can rake db:remake in development & staging environments only"
     end
