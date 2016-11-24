@@ -13,11 +13,13 @@
  *= require_self
  *= require font-awesome
  *= require_tree .
+ *= require social-share-button
  */
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "bootstrap-select";
+@import "social-share-button";
 
 .glyphicon {
   margin: 0 5px;

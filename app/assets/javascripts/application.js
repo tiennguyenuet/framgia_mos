@@ -20,6 +20,7 @@
 //= require bootstrap.min
 //= require bootstrap-select
 //= require_tree .
+//= require social-share-button
 
 $(document).on('turbolinks:load', function() {
 
