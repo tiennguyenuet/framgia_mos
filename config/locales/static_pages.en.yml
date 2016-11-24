@@ -5,7 +5,8 @@ en:
       no_post: "No post"
       no_data: "No data"
   layouts:
-    hotest: "Hotest"
+    recent: "Recent"
+    favourite: "Favourite"
     sign_up: "Sign up"
     log_in: "Log in"
     home: "Home"

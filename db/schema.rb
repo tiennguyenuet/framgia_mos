@@ -85,6 +85,7 @@ ActiveRecord::Schema.define(version: 20161011092140) do
     t.integer  "status",                    default: 0
     t.integer  "post_type"
     t.string   "accepted_by"
+    t.integer  "likes_count",               default: 0
     t.datetime "created_at",                            null: false
     t.datetime "updated_at",                            null: false
   end

@@ -1,10 +1,22 @@
 <div id="left-bar" class="col-md-4 col-xs-12">
-  <div class="category-name">
-    <span id="hotest">
-      <%= t "layouts.hotest" %>
-    </span>
+  <div class="list-category-posts">
+    <div class="category-name">
+      <span id="hotest">
+        <%= t "layouts.favourite" %>
+      </span>
+    </div>
+    <div id="list-posts">
+      <%= render "layouts/list_posts", posts: @favourite_posts %>
+    </div>
   </div>
-  <div id="hot-news">
-    <%= render "layouts/list_posts", posts: @hot_posts %>
+  <div class="list-category-posts">
+    <div class="category-name">
+      <span id="recent">
+        <%= t "layouts.recent" %>
+      </span>
+    </div>
+    <div id="list-posts">
+      <%= render "layouts/list_posts", posts: @hot_posts %>
+    </div>
   </div>
 </div>

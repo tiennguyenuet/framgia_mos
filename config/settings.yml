@@ -24,6 +24,8 @@ static_pages:
   truncate_post_description: 100
   truncate_post_title: 70
   truncate_first_post_description: 300
+  home:
+    favourite_posts_size: 5
 users:
   posts:
     per_page: 10

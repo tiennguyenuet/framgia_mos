@@ -21,10 +21,7 @@ class User < ActiveRecord::Base
   enum status: [:active, :blocked]
 
   def like? object
-    case object.class
-    when Post
-      object.likes.where(user_id: self.id).any?
-    end
+    object.likes.where(user_id: self.id).any?
   end
 
   class << self
