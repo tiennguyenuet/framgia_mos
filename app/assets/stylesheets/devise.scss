@@ -15,9 +15,13 @@
       width: 49%;
     }
 
-    #login-success, #signup-success {
+    #login-success, #register-success {
       color: green;
       font-weight: bold;
+    }
+
+    #register-errors {
+      text-align: left;
     }
   }
 

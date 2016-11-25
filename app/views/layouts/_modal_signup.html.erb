@@ -1,0 +1,32 @@
+<div id="modalSignup" class="modal fade" role="dialog">
+  <div class="modal-dialog" id="register">
+
+      <div id="box-form">
+        <div id="title">
+          <%- if devise_mapping.omniauthable? %>
+            <%= link_to omniauth_authorize_path(resource_name, :facebook),
+              class: "btn btn-social btn-facebook" do %>
+              <span class="fa fa-facebook"></span>Facebook
+            <% end %>
+            <%= link_to omniauth_authorize_path(resource_name, :google_oauth2),
+              class: "btn btn-social btn-google" do %>
+              <span class="fa fa-google"></span>Google
+            <% end %>
+          <% end -%>
+        </div>
+        <%= form_for resource, as: resource_name, url: registration_path(resource_name),
+          html: {id: "form-register"} do |f| %>
+          <div class="errors" id="register-errors"></div>
+          <div id="register-success"></div>
+          <div class="loading"></div>
+          <%= f.text_field :name, autofocus: true, placeholder: "Name", class: "text" %>
+          <%= f.email_field :email, placeholder: t("layouts.email"), class: "text" %><br>
+          <%= f.password_field :password, placeholder: t("layouts.password"),
+            class: "text password" %><br>
+          <%= f.password_field :password_confirmation,
+            placeholder: t("layouts.password_confirmation"), class: "text password" %><br>
+          <%= f.submit t("layouts.sign_up"), class: "button", id: "register-button" %>
+        <% end %>
+      </div>
+  </div>
+</div>
