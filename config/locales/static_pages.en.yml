@@ -14,3 +14,11 @@ en:
     log_out: "Log out"
     create_post: "Create Post"
     profile: "Profile"
+    password: "Password"
+    password_confirmation: "Password Confirmation"
+    email: "Email"
+    facebook: "Facebook"
+    google: "Google"
+  sessions:
+    create:
+      error: "Invalid Email/Password"
