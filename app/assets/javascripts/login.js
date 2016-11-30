@@ -12,8 +12,9 @@ $(document).on('submit', '#form-login', function(e){
       data: data,
       dataType: 'json',
       success: function(data){
+        var message = '<i class="fa fa-check-circle-o"></i> Login success, Redirecting...'
         $('#loading').html('');
-        $('#login-success').html('Login success, Redirecting...');
+        $('#login-success').html(message);
         location.reload();
       },
       error: function(data){
