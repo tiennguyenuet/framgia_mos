@@ -1,0 +1,35 @@
+<div id="modalLogin" class="modal fade" role="dialog">
+  <div class="modal-dialog" id="register">
+
+      <div id="box-form">
+        <div id="title">
+          <%- if devise_mapping.omniauthable? %>
+            <%= link_to omniauth_authorize_path(resource_name, :facebook),
+              class: "btn btn-social btn-facebook" do %>
+              <span class="fa fa-facebook"></span><%= t "layouts.facebook" %>
+            <% end %>
+            <%= link_to omniauth_authorize_path(resource_name, :google_oauth2),
+              class: "btn btn-social btn-google" do %>
+              <span class="fa fa-google"></span><%= t "layouts.google" %>
+            <% end %>
+          <% end -%>
+        </div>
+        <%= form_for :user, url: session_path(:user), html: {id: "form-login"} do |f| %>
+
+          <div class="errors" id="error-login"></div>
+          <div id="login-success"></div>
+          <div id="loading"></div>
+          <%= f.email_field :email, placeholder: t("layouts.email"), class: "text" %>
+          <br>
+          <%= f.password_field :password, placeholder: t("layouts.password"),
+            class: "text", id: "password" %>
+          <br>
+          <%= f.check_box :remember_me, id: "rememberMe" %>
+          <%= f.label :remember_me %>
+          <br>
+          <%= f.submit t("layouts.log_in"), class: "button", id: "login-button" %>
+        <% end %>
+        <%= render "devise/shared/links" %>
+      </div>
+  </div>
+</div>

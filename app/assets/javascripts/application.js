@@ -16,8 +16,6 @@
 //= require bootstrap
 //= require ckeditor/init
 //= require jquery-ui
-//= require bootstrap-sprockets
-//= require bootstrap.min
 //= require bootstrap-select
 //= require_tree .
 //= require social-share-button

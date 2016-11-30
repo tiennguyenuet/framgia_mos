@@ -11,4 +11,8 @@ module ApplicationHelper
   def vertical_display_post index
     (index / 2) % 2 == 0
   end
+
+  def devise_mapping
+    @devise_mapping ||= Devise.mappings[:user]
+  end
 end

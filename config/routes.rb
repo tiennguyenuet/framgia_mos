@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: {omniauth_callbacks: "users/callbacks"},
-    path: '', path_names: {sign_in: "login", sign_out: "logout", sign_up: "register"}
+  devise_for :users, controllers: {sessions: "sessions",
+    omniauth_callbacks: "users/callbacks"},
+    path: "", path_names: {sign_in: "login", sign_out: "logout", sign_up: "register"}
 
   root "static_pages#home"
   mount Ckeditor::Engine => "/ckeditor"
