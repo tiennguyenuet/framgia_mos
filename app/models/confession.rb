@@ -4,13 +4,14 @@ class Confession < ActiveRecord::Base
 
   class << self
     def each_month year
-      confessions = Confession.accepted.where("year(created_at) = #{Time.now.year}")
-        .order(:created_at).group_by do |confession|
-        confession.created_at.month
+      confessions_per_month = (1..12).map do |month|
+        {name: Date::MONTHNAMES[month], y: confessions_of_month(month, year)}
       end
-      confessions_per_month = confessions.map do |confession|
-        {name: Date::MONTHNAMES[confession.first], y: confession.last.size}
-      end
+    end
+
+    def confessions_of_month month, year
+      Confession.accepted
+        .where("year(created_at) = #{year} and month(created_at) = #{month}").size
     end
   end
 end
