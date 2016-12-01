@@ -20,11 +20,13 @@ class Post < ActiveRecord::Base
 
   class << self
     def each_month year
-      posts = Post.accepted.where("year(created_at) = #{Time.now.year}")
-        .order(:created_at).group_by {|post| post.created_at.month}
-      posts_per_month = posts.map do |post|
-        {name: Date::MONTHNAMES[post.first], y: post.last.size}
+      posts_per_month = (1..12).map do |month|
+        {name: Date::MONTHNAMES[month], y: Post.posts_of_month(month, year)}
       end
+    end
+
+    def posts_of_month month, year
+      Post.accepted.where("year(created_at) = #{year} and month(created_at) = #{month}").size
     end
   end
 

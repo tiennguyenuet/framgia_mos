@@ -29,6 +29,8 @@
               {include_blank: t(".search_categories")}, class: "form-control" %>
             <%= f.select :user_id_eq, @users_for_select,
               {include_blank: t(".search_users")}, class: "form-control" %>
+            <%= f.select :status_eq, Post.statuses.to_a,
+              {include_blank: t(".search_statuses")}, class: "form-control" %>
             <%= f.submit t(".search"),
               class: "btn btn-info margin_left_btn_submit" %>
           <% end %>

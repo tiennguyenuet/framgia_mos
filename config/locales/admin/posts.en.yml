@@ -19,6 +19,7 @@ en:
         no_post_display: "There are no post display!"
         search_categories: "Choose category..."
         search_users: "Choose user..."
+        search_statuses: "Status"
         category: "Category"
         save: "Save"
         are_you_sure: "Are you sure?"
