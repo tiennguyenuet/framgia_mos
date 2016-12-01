@@ -9,6 +9,17 @@
   <%= javascript_include_tag "application", "data-turbolinks-track": true %>
 </head>
   <body id="body-user">
+    <div id="banner" class="row">
+      <div id="logo" class="col-md-3">
+        <%= image_tag "icon.png", class: "img-responsive" %>
+      </div>
+      <div class="col-md-5" id="slogan">
+        <%= image_tag "slogan.png" %>
+      </div>
+      <div class="col-md-4" id="icon">
+        <%= image_tag "xe_dap.jpg", class: "img-responsive" %>
+      </div>
+    </div>
     <%= render "layouts/modal_login" %>
     <%= render "layouts/modal_signup" %>
     <%= render "layouts/navbar" %>
