@@ -27,5 +27,5 @@ $(document).on('submit', '#form-register', function(e){
         $('#register-button').removeAttr("disabled");
       }
     });
-  }, 500);
+  }, 100);
 })

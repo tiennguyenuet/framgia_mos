@@ -6,6 +6,9 @@
 
   a {
     color: #fff;
+    &:hover{
+      background-color: #000480;
+    }
   }
 
   .dropdown {
@@ -34,6 +37,7 @@
       &:hover {
         background-color: #230090;
       }
+
       a {
         text-transform: uppercase;
       }
@@ -64,29 +68,17 @@
 #wrapper {
   #wrapper-body {
     min-height: 83vh;
-    .category-name {
-      margin: 15px 0;
-      span {
-        padding: 8px;
-        color: #fff;
-      }
 
-      #newest {
-        background-color: #0037ff;
-      }
+    #home-page {
+      background-color: #0037ff;
+    }
 
-      #hotest {
-        background-color: red;
-      }
+    #hotest {
+      background-color: red;
+    }
 
-      #category-name {
-        background-color: #ff00eb;
-        text-transform: uppercase;
-      }
-
-      #recent {
-        background-color: gray;
-      }
+    #recent {
+      background-color: gray;
     }
 
     a {
@@ -96,116 +88,12 @@
       }
     }
 
-    #main-app {
-      padding: 15px;
-      border-right: 4px solid #d2d6de;
-      background-color: #fff;
-      #first-post {
-        color: black;
-        position: relative;
-        img {
-          height: 100%;
-          width: 100%;
-        }
-        .description {
-          padding: 5px;
-          background-color: rgba(255, 255, 255, 0.68);
-          width: 100%;
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          width: 100%;
-        }
-      }
-
-      .posts-category {
-        width: 100%;
-        .left {
-          width: 50%;
-          float: left;
-          padding: 10px;
-          .list-post-item {
-            min-height: 60px;
-            position: relative;
-            margin-top: 5px;
-            height: 100%;
-            display: table;
-            background-color: #ededed;
-            .image {
-              vertical-align: top;
-              width: 20%;
-              display: table-cell;
-              img {
-                width: 100%;
-              }
-            }
-
-            .post-title {
-              text-align: justify;
-              padding: 0 8px;
-              vertical-align: top;
-              width: 80%;
-              display: table-cell;
-              height: 100%;
-              .time {
-                position: absolute;
-                bottom: 0;
-                color: #af2796;
-              }
-            }
-
-            .time {
-              bottom: 0;
-              font-size: 13px;
-            }
-          }
-        }
-      }
-    }
-
     #left-bar {
       border-left: 4px solid #d2d6de;
       background-color: #fff;
       padding: 15px;
       .list-category-posts {
         margin-bottom: 20px;
-      }
-      #list-posts {
-        .list-post-item {
-          min-height: 76px;
-          margin-top: 5px;
-          height: 100%;
-          display: table;
-          background-color: #ededed;
-          a {
-            vertical-align: top;
-            width: 30%;
-            display: table-cell;
-            img {
-              width: 100%;
-            }
-          }
-
-          .post-title {
-            text-align: justify;
-            padding-left: 8px;
-            vertical-align: top;
-            width:70%;
-            display: table-cell;
-            height: 100%;
-            position: relative;
-            .time {
-              position: absolute;
-              bottom: 0;
-              color: #af2796;
-            }
-          }
-
-          .time {
-            bottom: 0;
-            font-size: 13px;
-          }
-        }
       }
     }
   }
