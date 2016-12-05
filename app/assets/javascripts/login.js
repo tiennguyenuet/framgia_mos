@@ -24,5 +24,5 @@ $(document).on('submit', '#form-login', function(e){
         $('#login-button').removeAttr("disabled");
       }
     });
-  }, 500);
+  }, 100);
 })
