@@ -30,6 +30,17 @@ class Post < ActiveRecord::Base
     end
   end
 
+  def label_status
+    case self.status
+    when "accepted"
+      "<label class= 'label label-success'>#{self.status}</label>"
+    when "rejected"
+      "<label class= 'label label-danger'>#{self.status}</label>"
+    when "waiting"
+      "<label class= 'label label-info'>#{self.status}</label>"
+    end
+  end
+
   private
   def validate_audio
     if self.post_type == Settings.admin.posts.audio_post
