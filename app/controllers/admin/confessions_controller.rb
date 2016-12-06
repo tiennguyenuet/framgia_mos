@@ -36,6 +36,7 @@ class Admin::ConfessionsController < Admin::BaseController
   end
 
   private
+
   def confession_params
     params.require(:confession).permit :id, :admin_comment, :status
   end

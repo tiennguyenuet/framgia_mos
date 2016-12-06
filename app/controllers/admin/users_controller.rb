@@ -10,14 +10,14 @@ class Admin::UsersController < Admin::BaseController
   def update
     if @user.update_attributes user_params
       flash[:success]= t ".success"
-      redirect_to admin_users_url
     else
       flash[:danger]= t ".error"
-      redirect_to admin_users_url
     end
+      redirect_to admin_users_url
   end
 
   private
+
   def user_params
     params.require(:user).permit :id, :status
   end

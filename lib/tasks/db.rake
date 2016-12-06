@@ -7,34 +7,27 @@ namespace :db do
       end
 
       puts "Creating users"
-
       10.times do
         Fabricate :user
       end
 
       puts "Creating admin"
-
-      User.create! ([
-        {name: "Do Gia Dat", user_name: "do.gia.dat", email: "do.gia.dat@framgia.com",
-          status: 0, role: 0, password: "12345678", password_confirmation: "12345678",
+      User.create([
+        {name: "Do Gia Dat", user_name: "do.gia.dat",
+          email: "do.gia.dat@framgia.com", status: 0, role: 0,
+          password: "12345678", password_confirmation: "12345678",
           avatar: File.open(File.join(Rails.root, "app/assets/images/users/do_gia_dat.jpg"))
-        },
-
-        {name: "Tran Xuan Thang", user_name: "tran.xuan.thang",
+        }, {name: "Tran Xuan Thang", user_name: "tran.xuan.thang",
           email: "tran.xuan.thang@framgia.com", status: 0, role: 0,
           password: "12345678", password_confirmation: "12345678",
           avatar: File.open(File.join(Rails.root, "app/assets/images/users/tran_xuan_thang.jpg"))
-        },
-
-        {name: "Nguyen Huu Tien", user_name: "nguyen.huu.tien",
-        email: "nguyen.huu.tien@framgia.com", status: 0, role: 0,
-        password: "12345678", password_confirmation: "12345678",
-        avatar: File.open(File.join(Rails.root, "app/assets/images/users/nguyen_huu_tien.jpg"))
-        }
-      ])
+        }, {name: "Nguyen Huu Tien", user_name: "nguyen.huu.tien",
+          email: "nguyen.huu.tien@framgia.com", status: 0, role: 0,
+          password: "12345678", password_confirmation: "12345678",
+          avatar: File.open(File.join(Rails.root, "app/assets/images/users/nguyen_huu_tien.jpg"))
+        }])
 
       puts "Creating Categories"
-
       ["radio online", "blog của tôi", "blog cuộc sống"].each do |name|
         Fabricate :category, name: name
       end
@@ -55,12 +48,11 @@ namespace :db do
 
       (1..20).each do |id|
         Advertisment.create(description: "Description #{id}",
-          url: "url #{id}",
-          image: "xe_dap")
+          url: "url #{id}", image: "xe_dap")
       end
 
       puts "Creating accepted posts"
-      9.times do |n|
+      9.times do
         Post.create(
           post_type: :normal,
           title: Faker::Hipster.sentence,
@@ -74,7 +66,7 @@ namespace :db do
       end
 
       puts "Creating pending posts"
-      9.times do |n|
+      9.times do
         Post.create(
           post_type: :normal,
           title: Faker::Hipster.sentence,
@@ -89,7 +81,7 @@ namespace :db do
       end
 
       puts "Creating confessions"
-      9.times do |n|
+      9.times do
         Confession.create(
           content: Faker::Hipster.paragraph,
           created_at: (Time.now - rand(Time.now.month).month),
@@ -98,7 +90,7 @@ namespace :db do
       end
 
       puts "Creating peding confessions"
-      9.times do |n|
+      9.times do
         Confession.create content: Faker::Hipster.paragraph, status: :pending
       end
 

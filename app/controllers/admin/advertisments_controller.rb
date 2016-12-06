@@ -45,6 +45,7 @@ class Admin::AdvertismentsController < Admin::BaseController
   end
 
   private
+
   def load_advertisments
     @search = Advertisment.ransack params[:q]
     @advertisments = @search.result.page(params[:page])

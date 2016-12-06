@@ -32,6 +32,7 @@ gem "jquery-ui-rails"
 gem "bootstrap-select-rails"
 gem "awesome_nested_set"
 gem "social-share-button"
+gem "rubocop"
 
 group :development, :test do
   gem "byebug", platform: :mri

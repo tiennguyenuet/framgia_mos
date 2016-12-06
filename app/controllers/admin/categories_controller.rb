@@ -48,6 +48,7 @@ class Admin::CategoriesController < Admin::BaseController
   end
 
   private
+
   def load_categories
     @search = Category.ransack params[:q]
     @categories = @search.result.includes(:parent, :children, :posts)
