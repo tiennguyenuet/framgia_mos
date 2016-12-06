@@ -44,6 +44,7 @@ class PostsController < ApplicationController
   end
 
   private
+
   def load_all_categories
     @nested_categories = Category.all_categories @category_roots
   end

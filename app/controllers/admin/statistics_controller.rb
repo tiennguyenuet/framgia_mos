@@ -1,5 +1,4 @@
 class Admin::StatisticsController < Admin::BaseController
-
   def index
     @pending_confessions = Confession.pending
     @waiting_posts = Post.waiting

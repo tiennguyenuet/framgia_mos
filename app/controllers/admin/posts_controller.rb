@@ -55,6 +55,7 @@ class Admin::PostsController < Admin::BaseController
   end
 
   private
+
   def post_params
     params.require(:post).permit(:id, :title, :description, :category_id,
       :content, :image, :audio, :user_id, :post_type, :status)

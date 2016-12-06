@@ -1,9 +1,8 @@
 class LikesController < ApplicationController
-
   def create
     case params[:commit]
     when "post"
-      post = Post.find(params[:id])
+      post = Post.find params[:id]
       like = post.likes.where(user_id: current_user.id).first
       if like
         like.destroy

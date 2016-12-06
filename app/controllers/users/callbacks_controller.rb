@@ -1,5 +1,4 @@
 class Users::CallbacksController < Devise::OmniauthCallbacksController
-
   def facebook
     @user = User.from_omniauth request.env["omniauth.auth"]
     sign_in @user
@@ -27,5 +26,4 @@ class Users::CallbacksController < Devise::OmniauthCallbacksController
       redirect_to new_user_registration_url
     end
   end
-
 end

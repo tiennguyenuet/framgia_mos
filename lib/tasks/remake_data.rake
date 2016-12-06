@@ -738,7 +738,7 @@ namespace :db do
       end
 
       puts "Creating confessions"
-      9.times do |n|
+      9.times do
         Confession.create(
           content: Faker::Hipster.paragraph,
           created_at: (Time.now - rand(Time.now.month).month),
@@ -747,12 +747,11 @@ namespace :db do
       end
 
       puts "Creating peding confessions"
-      9.times do |n|
+      9.times do
         Confession.create content: Faker::Hipster.paragraph, status: :pending
       end
 
       puts "Creating post like"
-
       (1..15).each do |post_id|
         rand(20).times do |like|
           Post.find(post_id).likes.create user_id: rand(14)
