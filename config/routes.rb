@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :posts
   resources :users, only: :show
   resources :likes, only: :create
+  resources :categories, only: :show
 
   namespace :admin do
     root "statistics#index", as: :root
