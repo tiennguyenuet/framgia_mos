@@ -6,8 +6,6 @@
           <span class="title">
             <%= @post.title %>
           </span>
-          <%= social_share_button_tag @post.title, url: "lvh.me:3000/posts/#{@post.id}",
-            image: "lvh.me:3000#{@post.image.url}" %>
           <div class="info">
             <div class="author">
               <i class="fa fa-user"></i>
@@ -19,6 +17,8 @@
                 &nbsp<%= @post.updated_at.strftime Settings.time_format.normal %>
               </span>
             </div>
+            <%= social_share_button_tag @post.title, url: "lvh.me:3000/posts/#{@post.id}",
+              image: "lvh.me:3000#{@post.image.url}" %>
           </div>
 
           <% if @post.audio? %>
@@ -32,6 +32,8 @@
           <div class="description">
             <strong><%= @post.description %></strong>
           </div>
+
+          <div class="center">***</div>
 
           <div class="content">
             <%= @post.content.html_safe %>
