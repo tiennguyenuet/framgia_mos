@@ -1,0 +1,29 @@
+<div class="row">
+  <div id="wrapper-body">
+    <div id="main-app" class="col-md-8 col-xs-12">
+      <%= link_to @category.name, @category, class: "btn btn-category" %>
+      <div class="posts-category">
+        <% @posts.each_with_index do |post, index| %>
+          <div class="left">
+            <%= link_to post do  %>
+              <%= image_tag post.image, class: "img-responsive" %>
+            <% end %>
+            <h4><%= link_to post.title, post, class: "post-title" %></h4>
+            <span><%= truncate post.description,
+              length: Settings.static_pages.truncate_post_description %></span>
+          </div>
+
+          <% if index % 2 == 1 || @posts.last == post%>
+            <div class="clearfix"></div>
+          <% end %>
+        <% end %>
+
+      </div>
+      <div class="center">
+        <%= paginate @posts, theme: "twitter-bootstrap-3",
+          pagination_class: "pagination-sm" %>
+      </div>
+    </div>
+    <%= render "layouts/left_content" %>
+  </div>
+</div>

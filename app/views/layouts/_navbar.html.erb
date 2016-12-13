@@ -18,9 +18,9 @@
                 <%= category.name %><span class="caret"></span>
               </a>
               <ul class="dropdown-menu">
-                <li><a href=""><%= category.name %></a></li>
+                <li><%= link_to category.name, category %></li>
                 <% category.children.each do |children| %>
-                  <li><a href="#"><%= children.name %></a></li>
+                  <li><%= link_to children.name, children %></li>
                 <% end %>
               </ul>
             </li>
@@ -43,8 +43,6 @@
               <% end %>
             </li>
           <% else %>
-            <% unless current_user.avatar.url.blank? %>
-            <% end %>
             <li>
               <%= link_to new_post_path do %>
                 <i class="fa fa-pencil" aria-hidden="true"></i>
@@ -53,7 +51,11 @@
             </li>
             <li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                <%= image_tag current_user.avatar, class: "user-image" %>
+                <% if current_user.avatar.url.blank? %>
+                  <%= image_tag "current_user.png", class: "user-image" %>
+                <% else %>
+                  <%= image_tag current_user.avatar, class: "user-image" %>
+                <% end %>
                 <span class="hidden-xs"><%= current_user.name %></span>
               </a>
               <ul class="dropdown-menu">

@@ -1,6 +1,5 @@
 <div class="row">
   <div id="wrapper-body">
-    <div id="slide"></div>
     <div id="main-app" class="col-md-8 col-xs-12">
       <div class="category-name category-with-margin-bottom">
         <span id="home-page" class="btn">
@@ -13,7 +12,8 @@
             <%= image_tag @first_post.image %>
           <% end %>
           <div class="description">
-            <h3 id="first-post-title"><%= link_to @first_post.title, @first_post %></h3>
+            <h3 id="first-post-title"><%= link_to @first_post.title, @first_post,
+              class: "post-title" %></h3>
             <span><%= truncate @first_post.description,
               length: Settings.static_pages.truncate_first_post_description %></span>
           </div>
@@ -27,14 +27,13 @@
             <% if vertical_display_post index %>
               <div class="left">
                 <div class="category-name category-name-vertical">
-                  <a id="category-name" class="btn">
-                    <%= category.name.upcase %>
-                  </a>
+                  <%= link_to category.name, category, class: "btn" %>
                 </div>
                 <%= link_to category.all_posts.last do  %>
                   <%= image_tag category.all_posts.last.image, class: "img-responsive" %>
                 <% end %>
-                <h4><%= link_to category.all_posts.last.title, category.all_posts.last %></h4>
+                <h4><%= link_to category.all_posts.last.title, category.all_posts.last,
+                  class: "post-title" %></h4>
                 <span><%= truncate category.all_posts.last.description,
                   length: Settings.static_pages.truncate_post_description %></span>
                 <%= render "layouts/list_posts", posts: category.all_posts.reverse
@@ -43,15 +42,14 @@
             <% else %>
               <div class="clearfix"></div>
               <div class="category-name category-name-horizontal">
-                <a id="category-name" class="btn">
-                  <%= category.name %>
-                </a>
+                <%= link_to category.name, category, class: "btn" %>
               </div>
               <div class="left">
                 <%= link_to category.all_posts.last do %>
                   <%= image_tag category.all_posts.last.image, class: "img-responsive" %>
                 <% end %>
-                <h4><%= link_to category.all_posts.last.title, category.all_posts.last %></h4>
+                <h4><%= link_to category.all_posts.last.title, category.all_posts.last,
+                  class: "post-title" %></h4>
                 <span><%= truncate category.all_posts.last.description,
                   length: Settings.static_pages.truncate_post_description %></span>
               </div>
