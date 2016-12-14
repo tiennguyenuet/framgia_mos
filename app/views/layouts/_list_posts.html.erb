@@ -4,7 +4,7 @@
   <% posts.each do |post| %>
     <div class="list-post-item">
       <%= link_to post, class: "image" do %>
-        <%= image_tag post.image, class: "pull-left img-responsive" %>
+        <%= image_tag post.image.resize, class: "pull-left img-responsive" %>
       <% end %>
       <div class="post-title">
         <%= link_to truncate(post.title,

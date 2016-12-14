@@ -6,7 +6,7 @@
         <% @posts.each_with_index do |post, index| %>
           <div class="left">
             <%= link_to post do  %>
-              <%= image_tag post.image, class: "img-responsive" %>
+              <%= image_tag post.image.resize, class: "img-responsive" %>
             <% end %>
             <h4><%= link_to post.title, post, class: "post-title" %></h4>
             <span><%= truncate post.description,

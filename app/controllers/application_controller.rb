@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :load_category_roots, :load_favourite_posts, :load_recent_posts
 
-  rescue_from CanCan::AccessDenied do |exception|
+  rescue_from Exception do |exception|
     flash[:warning] = exception.message
     redirect_to root_url
   end
