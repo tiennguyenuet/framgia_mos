@@ -1,6 +1,4 @@
 class ApplicationController < ActionController::Base
-  # Prevent CSRF attacks by raising an exception.
-  # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :load_category_roots, :load_favourite_posts, :load_recent_posts
@@ -32,5 +30,12 @@ class ApplicationController < ActionController::Base
   def load_recent_posts
     @recent_posts = Post.accepted.order(created_at: :desc).drop(1)
       .take Settings.static_pages.number_hot_posts
+  end
+
+  def current_ability
+    controller_name_segments = params[:controller].split("/")
+    controller_name_segments.pop
+    controller_namespace = controller_name_segments.join("/").camelize
+    Ability.new(current_user, controller_namespace)
   end
 end

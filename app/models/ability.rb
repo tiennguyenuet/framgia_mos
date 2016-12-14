@@ -1,13 +1,13 @@
 class Ability
   include CanCan::Ability
 
-  def initialize(user)
+  def initialize user, namespace
     user ||= User.new
-    if user.admin?
+    if namespace == "Admin" && user.admin?
       can :manage, :all
-    elsif user.user?
+    elsif namespace == ""
       can :read, :all
-      can :manage, Post, user_id: user.id
     end
+    can :manage, Post, user_id: user.id
   end
 end

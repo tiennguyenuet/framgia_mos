@@ -1,6 +1,6 @@
 <div class="row">
   <div id="wrapper-body">
-    <div id="main-app" class="col-md-8 col-xs-12">
+    <div class="main-app col-md-8 col-xs-12">
       <%= link_to @category.name, @category, class: "btn btn-category" %>
       <div class="posts-category">
         <% @posts.each_with_index do |post, index| %>
