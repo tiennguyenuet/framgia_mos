@@ -26,7 +26,7 @@ Rails.application.routes.draw do
     resources :advertisments
     resources :confessions
     devise_for :users, controllers: {sessions: "admin/sessions"},
-      path: '', path_names: {sign_in: "login", sign_out: "logout",
+      path: "", path_names: {sign_in: "login", sign_out: "logout",
       sign_up: "register"}
   end
 end

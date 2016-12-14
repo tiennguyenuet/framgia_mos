@@ -9,7 +9,7 @@
       <% if @first_post %>
         <div id="first-post" >
           <%= link_to post_path(@first_post) do %>
-            <%= image_tag @first_post.image %>
+            <%= image_tag @first_post.image.resize %>
           <% end %>
           <div class="description">
             <h3 id="first-post-title"><%= link_to @first_post.title, @first_post,
@@ -30,7 +30,7 @@
                   <%= link_to category.name, category, class: "btn" %>
                 </div>
                 <%= link_to category.all_posts.last do  %>
-                  <%= image_tag category.all_posts.last.image, class: "img-responsive" %>
+                  <%= image_tag category.all_posts.last.image.resize, class: "img-responsive" %>
                 <% end %>
                 <h4><%= link_to category.all_posts.last.title, category.all_posts.last,
                   class: "post-title" %></h4>
@@ -46,7 +46,7 @@
               </div>
               <div class="left">
                 <%= link_to category.all_posts.last do %>
-                  <%= image_tag category.all_posts.last.image, class: "img-responsive" %>
+                  <%= image_tag category.all_posts.last.image.resize, class: "img-responsive" %>
                 <% end %>
                 <h4><%= link_to category.all_posts.last.title, category.all_posts.last,
                   class: "post-title" %></h4>
