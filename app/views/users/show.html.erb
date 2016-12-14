@@ -21,6 +21,7 @@
         <th id="index"><%= t ".index" %></th>
         <th id="title" ><%= t ".title" %></th>
         <% if @user == current_user %>
+          <th id="status"><%= t ".status" %></th>
           <th id="action"><%= t ".action" %></th>
         <% end %>
       </thead>
@@ -30,15 +31,13 @@
             <td><%= index_for(@posts, index, Settings.users.posts.per_page) %></td>
             <td><%= link_to post.title, post %></td>
             <% if @user == current_user %>
+              <td><%= post.label_status.html_safe %></td>
               <td>
+                <%= link_to edit_post_path(post) do %>
+                  <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                <% end %>
                 <%= link_to post, method: :delete, data: {confirm: t(".confirm")} do %>
                   <i class="fa fa-trash-o" aria-hidden="true"></i>
-                <% end %>
-
-                <% if post.waiting? %>
-                  <%= link_to edit_post_path(post) do %>
-                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                  <% end %>
                 <% end %>
               </td>
             <% end %>

@@ -1,6 +1,6 @@
 <div class="row">
   <div id="wrapper-body">
-    <div id="main-app" class="col-md-8 col-xs-12">
+    <div class="main-app col-md-8 col-xs-12">
       <h2><%= yield :head %></h2>
       <%= simple_form_for @post, html: {multipart: true} do |f| %>
         <%= render "shared/error_messages", object: f.object %>
