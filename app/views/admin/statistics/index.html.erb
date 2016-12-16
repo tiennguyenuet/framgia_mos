@@ -2,7 +2,7 @@
   <div class="data">
     <div class="row">
         <div class="col-md-6 col-sm-6 col-xs-12">
-          <%= link_to "#" do %>
+          <%= link_to admin_posts_path do %>
             <div class="info-box">
               <span class="info-box-icon bg-green"><i class="fa fa-bicycle"></i></span>
                 <div class="info-box-content">
@@ -14,12 +14,12 @@
         </div>
 
         <div class="col-md-6 col-sm-6 col-xs-12">
-          <%= link_to "#" do %>
+          <%= link_to admin_confessions_path do %>
             <div class="info-box">
               <span class="info-box-icon bg-red"><i class="fa fa-newspaper-o"></i></span>
               <div class="info-box-content">
                 <span class="info-box-text"><%= t ".pending_posts" %></span>
-                <span class="info-box-number"><%= @waiting_posts.size %></span>
+                <span class="info-box-number"><%= @pending_posts.size %></span>
               </div>
             </div>
           <% end %>

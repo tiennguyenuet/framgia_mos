@@ -69,7 +69,7 @@
                     <td><%= link_to post.title, [:admin, post] %></td>
                     <td><%= post.created_at.strftime("%m/%d/%Y at %I:%M%p") %></td>
                     <td>
-                      <% if post.waiting? %>
+                      <% if post.pending? %>
                         <label class="label label-info">
                           <%= post.status.gsub("_", " ") %>
                         </label>

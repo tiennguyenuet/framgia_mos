@@ -29,7 +29,7 @@
         <% @posts.each_with_index do |post, index|%>
           <tr>
             <td><%= index_for(@posts, index, Settings.users.posts.per_page) %></td>
-            <td><%= link_to post.title, post %></td>
+            <td data-turbolinks="false"><%= link_to post.title, post %></td>
             <% if @user == current_user %>
               <td><%= post.label_status.html_safe %></td>
               <td>
