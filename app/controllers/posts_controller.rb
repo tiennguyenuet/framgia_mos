@@ -21,7 +21,7 @@ class PostsController < ApplicationController
   end
 
   def edit
-    redirect_to root_url unless @post.waiting?
+    redirect_to root_url unless @post.pending?
   end
 
   def update

@@ -4,7 +4,7 @@ class Post < ActiveRecord::Base
   has_many :comments, dependent: :destroy
   has_many :likes, as: :likeable
 
-  enum status: [:admin_create, :waiting, :accepted, :rejected]
+  enum status: [:admin_create, :pending, :accepted, :rejected]
   enum post_type: [:normal, :audio]
 
   mount_uploader :image, PostPictureUploader
@@ -36,7 +36,7 @@ class Post < ActiveRecord::Base
       "<label class= 'label label-success'>#{self.status}</label>"
     when "rejected"
       "<label class= 'label label-danger'>#{self.status}</label>"
-    when "waiting"
+    when "pending"
       "<label class= 'label label-info'>#{self.status}</label>"
     end
   end

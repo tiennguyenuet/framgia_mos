@@ -84,7 +84,7 @@
   </div>
 </div>
 <% case @post.status %>
-<% when "waiting" %>
+<% when "pending" %>
   <%= form_tag(controller: "accept_post", action: "update") do %>
     <%= hidden_field_tag :id, @post.id %>
     <%= hidden_field_tag :accepted_by, current_admin_user.name %>

@@ -2,7 +2,7 @@
   <div id="wrapper-body">
     <div class="main-app col-md-8 col-xs-12">
       <%= link_to @category.name, @category, class: "btn btn-category" %>
-      <div class="posts-category">
+      <div class="posts-category" data-turbolinks="false">
         <% @posts.each_with_index do |post, index| %>
           <div class="left">
             <%= link_to post do  %>

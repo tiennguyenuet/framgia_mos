@@ -7,7 +7,7 @@
         </span>
       </div>
       <% if @first_post %>
-        <div id="first-post" >
+        <div id="first-post" data-turbolinks="false">
           <%= link_to post_path(@first_post) do %>
             <%= image_tag @first_post.image.resize %>
           <% end %>
@@ -23,10 +23,10 @@
       <% end %>
       <% @category_roots.each_with_index do |category, index| %>
         <% if category.all_posts.any? %>
-          <div class="posts-category">
+          <div class="posts-category" data-turbolinks="false">
             <% if vertical_display_post index %>
               <div class="left">
-                <div class="category-name category-name-vertical">
+                <div class="category-name category-name-vertical" data-turbolinks="true">
                   <%= link_to category.name, category, class: "btn" %>
                 </div>
                 <%= link_to category.all_posts.last do  %>
@@ -41,7 +41,7 @@
               </div>
             <% else %>
               <div class="clearfix"></div>
-              <div class="category-name category-name-horizontal">
+              <div class="category-name category-name-horizontal" data-turbolinks="true">
                 <%= link_to category.name, category, class: "btn" %>
               </div>
               <div class="left">

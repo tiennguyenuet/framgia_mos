@@ -2,7 +2,7 @@
   <p><%= t "static_pages.home.no_post" %></p>
 <% else %>
   <% posts.each do |post| %>
-    <div class="list-post-item">
+    <div class="list-post-item" data-turbolinks="false">
       <%= link_to post, class: "image" do %>
         <%= image_tag post.image.resize, class: "pull-left img-responsive" %>
       <% end %>

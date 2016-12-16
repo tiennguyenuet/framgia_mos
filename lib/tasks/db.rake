@@ -72,7 +72,7 @@ namespace :db do
           title: Faker::Hipster.sentence,
           description: Faker::Hipster.sentence,
           content: Faker::Hipster.paragraph,
-          status: :waiting,
+          status: :pending,
           category_id: Category.order("rand()").first.id,
           image: File.open(File.join(Rails.root, "app/assets/images/posts/image1.jpg")),
           user_id: 1,
