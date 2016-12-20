@@ -1,0 +1,16 @@
+en:
+  admin:
+    registrations:
+      edit:
+        edit_profile: "Edit Profile"
+        name: "Name"
+        email: "Email"
+        password: "Password"
+        password_confirmation: "Password confirmation"
+        current_password: "Current password"
+        update: "Update"
+        not_change: "(leave blank if you don't want to change it)"
+        need_current_password: "(we need your current password to confirm your changes)"
+        choose_different_photo: "Choose a different photo"
+        confirmation: "Currently waiting confirmation for: "
+        characters_minimum: " characters minimum"
