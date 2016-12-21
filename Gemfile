@@ -33,6 +33,7 @@ gem "bootstrap-select-rails"
 gem "awesome_nested_set"
 gem "social-share-button"
 gem "rubocop"
+gem "figaro"
 
 group :development, :test do
   gem "byebug", platform: :mri
