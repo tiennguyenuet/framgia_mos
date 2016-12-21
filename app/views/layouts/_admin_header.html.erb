@@ -21,7 +21,8 @@
               </li>
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="#" class="btn btn-default btn-flat"><%= t ".profile" %></a>
+                  <%= link_to t(".profile"), edit_admin_user_registration_path,
+                    class: "btn btn-default btn-flat" %>
                 </div>
                 <div class="pull-right">
                   <%= link_to t(".sign_out"), destroy_admin_user_session_path,
