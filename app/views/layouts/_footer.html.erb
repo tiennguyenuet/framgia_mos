@@ -1,6 +1,35 @@
 <div id="footer">
-  <div class="wp_content">
-    <div class="info">
+  <div class="container">
+    <div class="row">
+      <h3 class="footertext"><%= t ".about_us"%></h3>
+      <br>
+        <div class="col-md-4">
+          <center>
+            <%= image_tag "code.jpg", class: "img-circle"%>
+            <br>
+            <h4 class="footertext"><%= t ".programer"%></h4>
+            <p class="footertext"><%= t ".code_by"%><br>
+          </center>
+        </div>
+        <div class="col-md-4">
+          <center>
+            <%= image_tag "write.jpg", class: "img-circle"%>
+            <br>
+            <h4 class="footertext"><%= t ".artist"%></h4>
+            <p class="footertext"><%= t ".hdv"%><br>
+          </center>
+        </div>
+        <div class="col-md-4">
+          <center>
+            <%= image_tag "design.jpg", class: "img-circle"%>
+            <br>
+            <h4 class="footertext"><%= t ".design"%></h4>
+            <p class="footertext"><%= t ".design_by"%><br>
+          </center>
+        </div>
+      </div>
+      <div class="row">
+      <p><center><p class="footertext"><%= t ".copyright"%></p></center></p>
     </div>
   </div>
 </div>
