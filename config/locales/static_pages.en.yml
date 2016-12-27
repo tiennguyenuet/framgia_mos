@@ -19,6 +19,15 @@ en:
     email: "Email"
     facebook: "Facebook"
     google: "Google"
+    footer:
+      about_us: "About Us"
+      programer: "Programer"
+      code_by: "Code by Framgia-MOS"
+      artist: "Artist"
+      hdv: "Human development division"
+      design: "Design"
+      design_by: "Designed by MOS"
+      copyright: "Copyright 2016"
   sessions:
     create:
       error: "Invalid Email/Password"
